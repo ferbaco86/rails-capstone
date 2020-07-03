@@ -7,6 +7,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.valid?
       @user.save
+
+      session[:user_id] = @user.id
+      session[:name] = @user.name
       #flash.notice = "Welcome  '#{@user.name}'!"
       redirect_to(articles_path)
     else
@@ -18,7 +21,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-
   end
 
   def edit
