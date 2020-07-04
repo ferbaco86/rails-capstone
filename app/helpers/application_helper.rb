@@ -2,4 +2,15 @@ module ApplicationHelper
   def signed_in?
     session[:user_id] != nil
   end
+
+  def is_user?
+    edit_link = link_to("Edit", edit_user_path(@user))
+    delete_link = link_to(" Delete",user_path(@user), method: :delete, data: {confirm: "Are you sure?"})
+     
+    if session[:user_id].to_s != params[:id].to_s
+      content_tag(:h3, "You're not allowed to edit this user")
+    else
+      edit_link + delete_link
+    end
+  end
 end

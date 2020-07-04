@@ -12,7 +12,7 @@
   <body>
   <nav>
   <% if signed_in? %>
-    <h3><%= session[:name] %></h3>
+    <h3><%= link_to("#{session[:name]}", user_path(session[:user_id])) %></h3>
     <%=link_to("Log Out", sessions_destroy_path)%>
   <%else%>
     <%=link_to("Log In", sessions_log_in_path) %>
