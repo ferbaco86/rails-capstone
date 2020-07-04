@@ -25,7 +25,7 @@ module ApplicationHelper
   def show_articles(articles)
     content_tag :div do
       articles.collect do |article|
-        concat(content_tag(:h3, article.title ) + content_tag(:p, article.text))
+        concat(content_tag(:h3, article.title ) + content_tag(:p, article.text) + (image_tag(article.picture, width: 200)if article.picture.attached?))
         tag(:br)
       end
     end

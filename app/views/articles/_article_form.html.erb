@@ -3,6 +3,8 @@
   <%= form.text_field :title %>
   <%=form.label :text, "Content: " %>
   <%= form.text_area :text %>
+  <%= form.label :picture %>
+  <%= form.file_field :picture %>
 
 
   <%= form.submit "Create Article"%>
