@@ -1,0 +1,9 @@
+<%=form_with(model: @article) do |form|%>
+  <%= form.label :title, "Title: " %>
+  <%= form.text_field :title %>
+  <%=form.label :text, "Content: " %>
+  <%= form.text_area :text %>
+
+
+  <%= form.submit "Create Article"%>
+<%end%>

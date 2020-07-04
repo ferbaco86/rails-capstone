@@ -13,4 +13,12 @@ module ApplicationHelper
       edit_link + delete_link
     end
   end
+
+  def show_users(users)
+    content_tag :ul do
+      users.collect do |user|
+        concat(content_tag(:li, link_to("#{user.name}", user_path(user.id))))
+      end
+    end
+  end
 end
