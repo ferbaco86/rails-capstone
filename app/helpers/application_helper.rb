@@ -21,4 +21,13 @@ module ApplicationHelper
       end
     end
   end
+
+  def show_articles(articles)
+    content_tag :div do
+      articles.collect do |article|
+        concat(content_tag(:h3, article.title ) + content_tag(:p, article.text))
+        tag(:br)
+      end
+    end
+  end
 end
