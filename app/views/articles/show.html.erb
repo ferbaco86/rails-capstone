@@ -1,2 +1,16 @@
 <h1>Articles#show</h1>
-<p>Find me in app/views/articles/show.html.erb</p>
+<div>
+<%= image_tag(@article.picture, width: 200)%>
+</div>
+<div>
+<%= @article.author.name%>
+</div>
+<div>
+<%= @article.title%>
+</div>
+<div>
+<%= @article.text%>
+</div>
+
+
+
