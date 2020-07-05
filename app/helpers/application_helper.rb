@@ -31,7 +31,9 @@ module ApplicationHelper
         article_picture = (image_tag(article.picture, width: 200)if article.picture.attached?)
         article_category = content_tag(:strong, article.categories.take.name)
 
-        concat( article_title + article_text + article_picture + article_category + article_author )
+        concat( article_title + article_text + article_picture + article_category + article_author ) +
+        concat(link_to(content_tag(:span, 'Vote!'), article_votes_path(article_id: article.id),
+method: :post))
         tag(:br)
       end
     end

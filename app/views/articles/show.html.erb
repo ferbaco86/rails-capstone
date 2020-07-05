@@ -11,6 +11,11 @@
 <div>
 <%= @article.text%>
 </div>
+<div>
+  <%=link_to(content_tag(:span, 'Vote!'), article_votes_path(article_id: @article.id),
+method: :post)%>
+</div>
+
 
 
 
