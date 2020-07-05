@@ -23,9 +23,16 @@ module ApplicationHelper
   end
 
   def show_articles(articles)
+    
     content_tag :div do
       articles.collect do |article|
-        concat(content_tag(:h3, article.title ) + content_tag(:p, article.text) + (image_tag(article.picture, width: 200)if article.picture.attached?))
+        article_author = content_tag(:strong, article.author.name)
+        article_title = content_tag(:h3, article.title)
+        article_text = content_tag(:p, article.text.truncate_words(10))
+        article_picture = (image_tag(article.picture, width: 200)if article.picture.attached?)
+        article_category = content_tag(:strong, article.categories.take.name)
+
+        concat( article_title + article_text + article_picture + article_category + article_author )
         tag(:br)
       end
     end
