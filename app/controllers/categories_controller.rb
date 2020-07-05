@@ -3,6 +3,10 @@ class CategoriesController < ApplicationController
     @category = Category.new
   end
 
+  def index
+    @categories = Category.all
+  end
+
   def create
     @category = Category.new(category_params)
     if @category.isvalid?

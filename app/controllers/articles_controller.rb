@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   def new
     @article = Article.new
+    @categories = Category.all
   end
 
   def index
@@ -14,7 +15,9 @@ class ArticlesController < ApplicationController
     user = User.find_user(session[:user_id])
     @article = user.take.articles.new(article_params)
     if @article.valid?
+      @article.article_categories.build(category_id: category_params[:id]).save
       @article.save
+
 
       redirect_to(articles_path)
     end
@@ -41,5 +44,9 @@ class ArticlesController < ApplicationController
   private
   def article_params
     params.require(:article).permit(:title, :text, :picture)
+  end
+
+  def category_params
+    params.require(:category).permit(:id)
   end
 end

@@ -5,6 +5,12 @@
   <%= form.text_area :text %>
   <%= form.label :picture %>
   <%= form.file_field :picture %>
+   <%= form.label "Category:" %>
+     <% if @article.categories.empty? %>
+       <%= collection_select(:category, :id, @categories, :id, :name, { selected: @categories.first.id } ) %>
+     <% else %>
+       <%= collection_select(:category, :id, @categories, :id, :name, { selected: @article.categories.first.id } ) %>
+     <% end %>
 
 
   <%= form.submit "Create Article"%>
