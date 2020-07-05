@@ -36,4 +36,20 @@ module ApplicationHelper
       end
     end
   end
+
+  def show_categories(categories)
+    content_tag :div do
+      categories.collect do |category|
+        if category.articles.take != nil
+          article_title = content_tag(:strong, category.articles.take.title)
+          article_picture = (image_tag(category.articles.take.picture, width: 200) if category.articles.take.picture.attached?)
+        end
+        category_name = link_to(content_tag(:h3, category.name),articles_path(category))
+        
+
+        concat(  category_name + article_title + article_picture )
+        tag(:br)
+      end
+    end
+  end
 end

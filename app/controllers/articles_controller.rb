@@ -5,7 +5,8 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.all
+    category = Category.find(params[:format])
+    @articles = category.articles.all
   end
 
   def show
@@ -20,7 +21,7 @@ class ArticlesController < ApplicationController
       @article.save
 
 
-      redirect_to(articles_path)
+      redirect_to(root_path)
     end
   end
 
@@ -39,7 +40,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.destroy
 
-    redirect_to(articles_path)
+    redirect_to(root_path)
   end
   
   private
