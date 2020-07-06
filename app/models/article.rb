@@ -8,6 +8,6 @@ class Article < ApplicationRecord
   validates :title, presence: true, length: { in: 3..60 }
   validates :text, presence: true
 
-  scope :featured_article, -> { where("votes_count").order(:desc).first }
+  scope :featured_article, -> { order("votes_count DESC").first }
 
 end
