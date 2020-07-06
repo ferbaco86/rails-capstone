@@ -4,7 +4,7 @@ class CategoriesController < ApplicationController
   end
 
   def index
-    @categories = Category.all
+    @categories = Category.categories_priority
     @featured_article = Article.featured_article
   end
 

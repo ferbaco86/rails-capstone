@@ -5,4 +5,5 @@ class Category < ApplicationRecord
   validates :name, presence: true
   validates :priority, presence: true
   
+  scope :categories_priority, -> { order("priority DESC") }
 end
