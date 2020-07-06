@@ -1,1 +1,5 @@
+<div>
+  <%=@featured_article.title%>
+  <%=link_to(image_tag(@featured_article.picture, width: 500),article_path(@featured_article.id))%>
+</div>
 <%= show_categories(@categories) %>

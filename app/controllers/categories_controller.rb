@@ -5,6 +5,7 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
+    @featured_article = Article.featured_article
   end
 
   def create
