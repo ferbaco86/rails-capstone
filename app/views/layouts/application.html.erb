@@ -11,12 +11,24 @@
 
   <body>
   <nav>
-  <% if signed_in? %>
-    <h3><%= link_to("#{session[:name]}", user_path(session[:user_id])) %></h3>
-    <%=link_to("Log Out", sessions_destroy_path)%>
-  <%else%>
-    <%=link_to("Log In", sessions_log_in_path) %>
-  <%end%>
+  <div class='nav-container lato-font d-flex j-content-between m-lr-20'>
+    <div class = 'nav-home'>
+      <%=link_to("HOME", root_path, class: "nav-links")%>
+    </div>
+    <div class="d-flex j-content-around a-items-center nav-right">
+      <% if signed_in? %>
+          <h3><%= link_to("#{session[:name]}", user_path(session[:user_id]),class: "nav-links") %></h3>
+          <%=link_to("WRITE AN ARTICLE", new_article_path, class: "nav-links")%>
+          <%=link_to("LOG OUT", sessions_destroy_path, class: "nav-links")%>
+    </div>
+      <%else%>
+    <div class="d-flex a-items-center j-content-end nav-right">
+          <%=link_to("LOG IN | ", sessions_log_in_path, class: "nav-links") %>
+          <%=link_to(" REGISTER", new_user_path, class: "nav-links") %>
+    </div>
+      <%end%>
+    </div>
+  </div>
   </nav>
     <%= yield %>
   </body>

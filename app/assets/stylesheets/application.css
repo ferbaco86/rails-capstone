@@ -13,3 +13,172 @@
  *= require_tree .
  *= require_self
  */
+
+ @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+ @font-face {
+  font-family: 'CartoGothic Std Book';
+  src: url('../assets/CartoGothicStdBook.woff');
+  } 
+  
+
+ /* CSS RESET */
+
+ /* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: 'CartoGothic Std Book';
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* colors */
+
+:root {
+  --nav-bg-color: #fff; 
+  --nav-links-color: #b8b6b2;
+}
+
+/* fonts */
+
+.lato-font {
+  font-family: 'Lato', sans-serif;
+}
+
+.cartogothic-font {
+  font-family: "CartoGothic Std Book"
+}
+
+/* display */
+
+.d-flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.j-content-center {
+  justify-content: center;
+}
+
+.a-items-center {
+  align-items: center;
+}
+
+.j-content-between {
+  justify-content: space-between;
+}
+
+.j-content-evenly {
+  justify-content: space-evenly;
+}
+
+.j-content-around {
+  justify-content: space-around;
+}
+
+.j-content-end {
+  justify-content: flex-end;
+}
+
+.m-lr-20 {
+  margin: 0 20px;
+}
+/* navigation */
+
+nav {
+  background-color: var(--nav-bg-color);
+  font-size: 0.9em;
+  text-transform: uppercase;
+}
+
+.nav-container {
+  padding: 30px 0;
+}
+
+.nav-home {
+  flex-grow: 6;
+}
+
+.nav-right {
+  flex-grow: 1;
+}
+
+.nav-links {
+  text-decoration: none;
+  color: var(--nav-links-color);
+}
