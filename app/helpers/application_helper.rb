@@ -31,7 +31,6 @@ module ApplicationHelper
         article_title = link_to(content_tag(:h3, article.title),article_path(article),class: "article-title")
         article_text = content_tag(:p, article.text.truncate_words(20))
         article_picture = content_tag(:div, nil, style:"background: no-repeat center/cover url('#{rails_blob_url(article.picture) if article.picture.attached?}');", class: "article-image")
-        #article_picture = (image_tag(article.picture, class: "article-image")if article.picture.attached?)
         article_category = content_tag(:h3, article.categories.take.name, class: "articles-cat-title")
        
 
@@ -49,10 +48,8 @@ module ApplicationHelper
         article_title = content_tag(:h3, "There's no categories yet")
       end
       categories.collect do |category|
-       #content_tag :div do
         if category.articles.take != nil
           article_title = content_tag(:h3, category.latest_articles.first.title)
-          #article_picture = (image_tag(category.latest_articles.first.picture, width: 200) )
           art_picture = "background: no-repeat center/cover url('#{rails_blob_url(category.latest_articles.first.picture) if category.latest_articles.take.picture.attached?}');"
         else
           article_title = content_tag(:h3, "No articles for this category, GG")
@@ -64,6 +61,5 @@ module ApplicationHelper
         concat(content_tag(:article,( category_name + article_title ),style: art_picture, class: "cat-article d-flex flex-column j-content-between" ))
       end
       end
-    #end
   end
 end

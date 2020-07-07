@@ -296,6 +296,10 @@ main {
   grid-template-rows: repeat(2,1fr);
 }
 
+.articles-container article:nth-child(n+3) {
+  flex-direction: row-reverse;
+}
+
 .articles-container article {
   height: 42vh;
 }
