@@ -6,4 +6,9 @@ class Category < ApplicationRecord
   validates :priority, presence: true
   
   scope :categories_priority, -> { order("priority DESC") }
+
+
+  def latest_articles
+    self.articles.order(created_at: :desc)
+  end
 end

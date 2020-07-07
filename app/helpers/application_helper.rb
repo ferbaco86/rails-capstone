@@ -40,18 +40,19 @@ method: :post))
   end
 
   def show_categories(categories)
-    content_tag :div do
+    content_tag :div, class: "d-flex" do
       categories.collect do |category|
+       #content_tag :div do
         if category.articles.take != nil
-          article_title = content_tag(:strong, category.articles.take.title)
-          article_picture = (image_tag(category.articles.take.picture, width: 200) if category.articles.take.picture.attached?)
+          article_title = content_tag(:strong, category.latest_articles.first.title)
+          article_picture = (image_tag(category.latest_articles.first.picture, width: 200) if category.latest_articles.take.picture.attached?)
         end
         category_name = link_to(content_tag(:h3, category.name),articles_path(category))
         
 
-        concat(  category_name + article_title + article_picture )
-        tag(:br)
+        concat(content_tag(:article,( category_name + article_title + article_picture )))
       end
-    end
+      end
+    #end
   end
 end

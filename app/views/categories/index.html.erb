@@ -1,5 +1,6 @@
-<div>
-  <%=@featured_article.title%>
-  <%=link_to(image_tag(@featured_article.picture, width: 500),article_path(@featured_article.id))%>
-</div>
-<%= show_categories(@categories) %>
+<article class="featured-article" style ="background: no-repeat top center/cover url('<%= rails_blob_url(@featured_article.picture) %>');">
+<span class="article-title"><%=@featured_article.title%></span>
+  
+  <%=link_to("",article_path(@featured_article.id))%>
+</article>
+  <%= show_categories(@categories) %>
