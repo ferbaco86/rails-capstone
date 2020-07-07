@@ -228,6 +228,11 @@ nav {
 main {
 
 }
+.article-title,
+.cat-article h3,
+.article-content p {
+  padding: 10px 20px;
+}
 
 .article-title {
   font-family: "chivobold", serif;
@@ -270,7 +275,6 @@ main {
 }
 
 .cat-article h3 {
-  padding: 10px 10px;
   color: var(--text-color);
   font-family: "chivobold", serif;
   font-weight: 400;

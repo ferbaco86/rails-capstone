@@ -5,7 +5,7 @@ class Article < ApplicationRecord
   has_many :categories, through: :article_categories, dependent: :destroy
   has_one_attached :picture
 
-  validates :title, presence: true, length: { in: 3..60 }
+  validates :title, presence: true, length: { in: 3..200 }
   validates :text, presence: true
 
   scope :featured_article, -> { order("votes_count DESC").first }
