@@ -98,6 +98,7 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   font-family: 'CartoGothic Std Book','open-sans',sans-serif;
+  background-color: #4e443e;
 }
 
 /* Remove list styles on ul, ol elements with a class attribute */
@@ -145,6 +146,8 @@ select {
 :root {
   --nav-bg-color: #fff; 
   --nav-links-color: #b8b6b2;
+  --highlight-color: #fa6000;
+  --text-color: #f0ebeb;
 }
 
 /* fonts */
@@ -208,6 +211,7 @@ nav {
 
 .nav-home {
   flex-grow: 6;
+  align-self: center;
 }
 
 .nav-right {
@@ -227,12 +231,55 @@ main {
 
 .article-title {
   font-family: "chivobold", serif;
+  text-decoration: none;
+  font-size: 1.5em;
+  font-weight: 400;
+  color: var(--highlight-color);
 }
 
 .featured-article {
   width: 100%;
   height: 500px;
+  color: var(--text-color);
+  position: relative;
+}
+
+.featured-article::before,
+.cat-article::before {
+  content: "";
+  background: linear-gradient(180deg, rgba(0,0,0,0.35056029247636555) 9%, rgba(255,255,255,0.0536415249693627) 50%, rgba(0,0,0,0.35056029247636555) 84%);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.article-content{
+  background-color:rgba(0, 0, 0, 0.6);
+  z-index: 1;
 }
 
 .categories-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.cat-article {
+  width: 100%;
+  height: 300px;
+  position: relative;
+}
+
+.cat-article h3 {
+  padding: 10px 10px;
+  color: var(--text-color);
+  font-family: "chivobold", serif;
+  font-weight: 400;
+  z-index: 1;
+}
+
+.cat-link {
+  text-decoration: underline;
+  text-decoration-color: var(--highlight-color);
+  text-decoration-thickness: 3px;
+  z-index: 1;
 }

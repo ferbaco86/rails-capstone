@@ -40,17 +40,24 @@ method: :post))
   end
 
   def show_categories(categories)
-    content_tag :div, class: "d-flex" do
+    content_tag :div, class: "categories-container" do
+      if categories == nil
+        article_title = content_tag(:h3, "There's no categories yet")
+      end
       categories.collect do |category|
        #content_tag :div do
         if category.articles.take != nil
-          article_title = content_tag(:strong, category.latest_articles.first.title)
-          article_picture = (image_tag(category.latest_articles.first.picture, width: 200) if category.latest_articles.take.picture.attached?)
+          article_title = content_tag(:h3, category.latest_articles.first.title)
+          #article_picture = (image_tag(category.latest_articles.first.picture, width: 200) )
+          art_picture = "background: no-repeat top center/cover url('#{rails_blob_url(category.latest_articles.first.picture) if category.latest_articles.take.picture.attached?}');"
+        else
+          article_title = content_tag(:h3, "No articles for this category, GG")
+          art_picture = "background: #4e443e"
         end
-        category_name = link_to(content_tag(:h3, category.name),articles_path(category))
+        category_name = link_to(content_tag(:h3, category.name),articles_path(category),class: "cat-link")
         
-
-        concat(content_tag(:article,( category_name + article_title + article_picture )))
+        
+        concat(content_tag(:article,( category_name + article_title ),style: art_picture, class: "cat-article d-flex flex-column j-content-between" ))
       end
       end
     #end
