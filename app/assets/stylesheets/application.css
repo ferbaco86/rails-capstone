@@ -148,6 +148,7 @@ select {
   --nav-links-color: #b8b6b2;
   --highlight-color: #fa6000;
   --text-color: #f0ebeb;
+  --text-color-dark: #4d443e;
 }
 
 /* fonts */
@@ -228,13 +229,14 @@ nav {
 main {
 
 }
-.article-title,
+.featured-article-title,
 .cat-article h3,
-.article-content p {
+.article-content p,
+.article-preview {
   padding: 10px 20px;
 }
 
-.article-title {
+.featured-article-title {
   font-family: "chivobold", serif;
   text-decoration: none;
   font-size: 1.5em;
@@ -286,4 +288,56 @@ main {
   text-decoration-color: var(--highlight-color);
   text-decoration-thickness: 3px;
   z-index: 1;
+}
+
+.articles-container {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-template-rows: repeat(2,1fr);
+}
+
+.articles-container article {
+  height: 42vh;
+}
+
+.articles-container span {
+  color: var(--highlight-color)
+}
+
+.article-image {
+  width: 100%;
+  height: 100%;
+}
+
+.article-preview {
+  margin-top: 0;
+  width: 100%;
+  background-color: var(--text-color);
+  display: grid;
+}
+
+.articles-cat-title {
+  color:var(--highlight-color);
+  border-bottom: 3px solid var(--highlight-color);
+  width: max-content;
+  height: max-content;
+  font-family: "chivobold";
+  font-weight: 400;
+}
+
+.article-title {
+  color: var(--text-color-dark);
+  font-family: "chivoregular", serif;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.social-icon { 
+  color: var(--highlight-color);
+  font-size: 1.6em;
+  margin-left: 10px;
+}
+
+footer p {
+  color: var(--text-color);
 }

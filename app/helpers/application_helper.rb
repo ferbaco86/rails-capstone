@@ -23,18 +23,22 @@ module ApplicationHelper
   end
 
   def show_articles(articles)
-    content_tag :div do
+    content_tag :div, class: "articles-container" do
       articles.collect do |article|
-        article_author = content_tag(:strong, article.author.name)
-        article_title = link_to(content_tag(:h3, article.title),article_path(article))
-        article_text = content_tag(:p, article.text.truncate_words(10))
-        article_picture = (image_tag(article.picture, width: 200)if article.picture.attached?)
-        article_category = content_tag(:strong, article.categories.take.name)
+        art_vote = link_to(content_tag(:span, 'Vote for this article'), article_votes_path(article_id: article.id),
+        method: :post)
+        article_author = content_tag(:strong,"by #{article.author.name}") + art_vote
+        article_title = link_to(content_tag(:h3, article.title),article_path(article),class: "article-title")
+        article_text = content_tag(:p, article.text.truncate_words(20))
+        article_picture = content_tag(:div, nil, style:"background: no-repeat center/cover url('#{rails_blob_url(article.picture) if article.picture.attached?}');", class: "article-image")
+        #article_picture = (image_tag(article.picture, class: "article-image")if article.picture.attached?)
+        article_category = content_tag(:h3, article.categories.take.name, class: "articles-cat-title")
+       
 
-        concat( article_title + article_text + article_picture + article_category + article_author ) +
-        concat(link_to(content_tag(:span, 'Vote!'), article_votes_path(article_id: article.id),
-method: :post))
-        tag(:br)
+        concat(content_tag(:article, 
+          article_picture + content_tag(:div, 
+            article_category + article_title + article_author + article_text, 
+            class: "article-preview" ),class: "d-flex"))
       end
     end
   end
