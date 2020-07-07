@@ -49,7 +49,7 @@ method: :post))
         if category.articles.take != nil
           article_title = content_tag(:h3, category.latest_articles.first.title)
           #article_picture = (image_tag(category.latest_articles.first.picture, width: 200) )
-          art_picture = "background: no-repeat top center/cover url('#{rails_blob_url(category.latest_articles.first.picture) if category.latest_articles.take.picture.attached?}');"
+          art_picture = "background: no-repeat center/cover url('#{rails_blob_url(category.latest_articles.first.picture) if category.latest_articles.take.picture.attached?}');"
         else
           article_title = content_tag(:h3, "No articles for this category, GG")
           art_picture = "background: #4e443e"
