@@ -25,11 +25,12 @@ module ApplicationHelper
   def show_articles(articles)
     content_tag :div, class: "articles-container" do
       articles.collect do |article|
-        art_vote = link_to(content_tag(:span, 'Vote for this article'), article_votes_path(article_id: article.id),
+        art_vote = link_to(content_tag(:span, 'Vote for this article'), article_votes_path(article_id: article.id), 
+        class: "article-vote",
         method: :post)
-        article_author = content_tag(:strong,"by #{article.author.name}") + art_vote
+        article_author = content_tag(:strong,"by #{article.author.name}", class: "article-author") + art_vote
         article_title = link_to(content_tag(:h3, article.title),article_path(article),class: "article-title")
-        article_text = content_tag(:p, article.text.truncate_words(20))
+        article_text = content_tag(:p, article.text.truncate_words(20), class: "article-summary")
         article_picture = content_tag(:div, nil, style:"background: no-repeat center/cover url('#{rails_blob_url(article.picture) if article.picture.attached?}');", class: "article-image")
         article_category = content_tag(:h3, article.categories.take.name, class: "articles-cat-title")
        
