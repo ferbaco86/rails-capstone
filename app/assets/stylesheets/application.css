@@ -231,7 +231,8 @@ main,
 .articles-container,
 .instructions-write,
 .create-art-container,
-.instructions-register {
+.instructions-register,
+.instructions-login {
   flex-grow: 1;
 }
 
@@ -259,7 +260,8 @@ main,
 .featured-article::before,
 .cat-article::before,
 .instructions-write::before,
-.instructions-register::before {
+.instructions-register::before,
+.instructions-login::before {
   content: "";
   background: linear-gradient(180deg, rgba(0,0,0,0.35056029247636555) 9%, rgba(255,255,255,0.0536415249693627) 50%, rgba(0,0,0,0.35056029247636555) 84%);
   width: 100%;
@@ -267,7 +269,7 @@ main,
   position: absolute;
 }
 
-.article-content{
+.article-content {
   background-color:rgba(0, 0, 0, 0.6);
   z-index: 1;
 }
@@ -373,8 +375,14 @@ input[type="submit"] {
   position: relative;
 }
 
+.instructions-login {
+  background: no-repeat center/cover url('welcome.jpg');
+  position: relative;
+}
+
 .instructions-write::after,
-.instructions-register::after {
+.instructions-register::after,
+.instructions-login::after {
   content: "";
   background-color: black;
   position: absolute;
@@ -388,6 +396,8 @@ input[type="submit"] {
 .instructions-write h3,
 .instructions-register h2,
 .instructions-register h3,
+.instructions-login h2,
+.instructions-login h3,
 .instructions-write ul {
   padding: 10px;
   z-index: 1;
@@ -395,7 +405,8 @@ input[type="submit"] {
 }
 
 .instructions-write h2,
-.instructions-register h2 {
+.instructions-register h2,
+.instructions-login h2 {
   color: var(--highlight-color);
   font-family: "chivobold", serif;
   font-weight: 400;
@@ -404,7 +415,8 @@ input[type="submit"] {
 }
 .instructions-write ul,
 .instructions-write h3,
-.instructions-register h3 {
+.instructions-register h3,
+.instructions-login h3 {
   color: var(--text-color);
 }
 

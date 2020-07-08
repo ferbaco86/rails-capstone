@@ -1,9 +1,8 @@
 <%= form_with(url: sessions_path) do |form| %>
-<div class = "field">
-  <div class = "control">
+<div>
     <%= form.label(:name_login, "Enter your name: ", class: "label" ) %>
-    <%= form.text_field(:name_login) %>
-  </div>
+    <%= form.text_field(:name_login, placeholder: "Your username here...") %>
+    <%= form.submit('Login', class: "button is-primary") %>
 </div>
-  <%= form.submit('Login', class: "button is-primary") %>
+  
 <% end %>
