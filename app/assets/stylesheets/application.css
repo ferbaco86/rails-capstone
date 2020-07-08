@@ -52,6 +52,8 @@
  /* CSS RESET */
 
  /* Box sizing rules */
+
+
 *,
 *::before,
 *::after {
@@ -84,7 +86,7 @@ dd {
 
 /* Set core body defaults */
 body {
-  min-height: 100vh;
+  height: 100vh;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
@@ -166,6 +168,10 @@ select {
   display: flex !important;
 }
 
+.row-reverse {
+  flex-direction: row-reverse;
+}
+
 .flex-column {
   flex-direction: column;
 }
@@ -224,6 +230,10 @@ box-shadow: inset 0px -14px 16px -20px rgba(0,0,0,0.5);
 }
 
 /* Main section */
+
+main {
+flex: 1 0 auto;
+}
 
 main,
 .nav-right,
@@ -307,13 +317,8 @@ main,
   grid-template-rows: repeat(2,1fr);
 }
 
-.articles-container article:nth-child(n+3) {
-  flex-direction: row-reverse;
-}
-
 .article-image {
   width: 100%;
-  height: 100%;
 }
 
 .article-preview {
@@ -454,8 +459,7 @@ input[type="submit"] {
 }
 
 footer {
-  grid-row-start: 2;
-  grid-row-end: 3;
+  flex-shrink: 0;
 }
 
 footer p {

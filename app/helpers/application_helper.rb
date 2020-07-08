@@ -23,7 +23,9 @@ module ApplicationHelper
   end
 
   def show_articles(articles)
+    
     content_tag :div, class: "articles-container" do
+      count = 0
       articles.collect do |article|
         art_vote = link_to(content_tag(:span, 'Vote for this article'), article_votes_path(article_id: article.id), 
         class: "article-vote",
@@ -34,11 +36,19 @@ module ApplicationHelper
         article_picture = content_tag(:div, nil, style:"background: no-repeat center/cover url('#{rails_blob_url(article.picture) if article.picture.attached?}');", class: "article-image")
         article_category = content_tag(:h3, article.categories.take.name, class: "articles-cat-title")
        
-
-        concat(content_tag(:article, 
+        
+        if ((count/2)%2).zero?
+          concat(content_tag(:article, 
           article_picture + content_tag(:div, 
             article_category + article_title + article_author + article_text, 
             class: "article-preview" ),class: "d-flex"))
+        else
+          concat(content_tag(:article, 
+          article_picture + content_tag(:div, 
+            article_category + article_title + article_author + article_text, 
+            class: "article-preview" ),class: "d-flex row-reverse"))
+        end
+        count+=1
       end
     end
   end
