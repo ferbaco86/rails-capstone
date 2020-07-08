@@ -29,7 +29,7 @@
         <strong>By <%= @article.author.name%></strong>
         <%=link_to(content_tag(:span, 'Vote for this article'), article_votes_path(article_id: @article.id), 
             class: "article-vote",
-            method: :post)%>
+            method: :post) if signed_in?%>
       </div>
       <div class="font-s-1-2 article-text">
         <p><%= @article.text%></p>

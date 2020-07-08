@@ -29,7 +29,7 @@ module ApplicationHelper
       articles.collect do |article|
         art_vote = link_to(content_tag(:span, 'Vote for this article'), article_votes_path(article_id: article.id), 
         class: "article-vote",
-        method: :post)
+        method: :post) if signed_in?
         article_author = content_tag(:strong,"by #{article.author.name}", class: "article-author") + art_vote
         article_title = link_to(content_tag(:h3, article.title),article_path(article),class: "article-title")
         article_text = content_tag(:p, article.text.truncate_words(20), class: "article-summary")
