@@ -1,20 +1,21 @@
-<h1>Articles#show</h1>
-<div>
-<%= image_tag(@article.picture, width: 200)%>
+<div class="featured-article d-flex flex-column j-content-end" style ="background: no-repeat center/contain url('<%= rails_blob_url(@article.picture) %>');">
+ <h2 class= "font-s-2 featured-article-title article-content ">
+    <%= @article.title%>
+</h2>
 </div>
-<div>
-<%= @article.author.name%>
+<div class="article-elements">
+  <div class= "article-author">
+    <strong>By <%= @article.author.name%></strong>
+    <%=link_to(content_tag(:span, 'Vote for this article'), article_votes_path(article_id: @article.id), 
+          class: "article-vote",
+          method: :post)%>
+  </div>
+
+  <div class="font-s-1-2">
+    <p><%= @article.text%></p>
+  </div>
 </div>
-<div>
-<%= @article.title%>
-</div>
-<div>
-<%= @article.text%>
-</div>
-<div>
-  <%=link_to(content_tag(:span, 'Vote!'), article_votes_path(article_id: @article.id),
-method: :post)%>
-</div>
+
 
 
 

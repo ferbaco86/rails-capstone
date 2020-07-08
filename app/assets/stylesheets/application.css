@@ -17,15 +17,6 @@
  @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 
- /* @font-face {
-  font-family: 'cartogothic_stdregular';
-  src: url('/assets/cartogothicstd-book-webfont.woff2') format('woff2'),
-       url('/assets/cartogothicstd-book-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-
-} */
-
 @font-face {
   font-family: 'CartoGothic Std Book';
   font-style: normal;
@@ -161,6 +152,14 @@ select {
   font-family: "CartoGothic Std Book"
 }
 
+.font-s-2{
+  font-size: 2em!important;
+}
+
+.font-s-1-2 {
+  font-size: 1.2em!important;
+}
+
 /* display */
 
 .d-flex {
@@ -198,6 +197,7 @@ select {
 .m-lr-20 {
   margin: 0 20px;
 }
+
 /* navigation */
 
 nav {
@@ -232,7 +232,8 @@ main,
 .instructions-write,
 .create-art-container,
 .instructions-register,
-.instructions-login {
+.instructions-login,
+.article-elements {
   flex-grow: 1;
 }
 
@@ -336,12 +337,18 @@ main,
   text-decoration: none;
   font-weight: 400;
 }
+
 .articles-cat-title,
 .article-title,
 .article-author,
 .article-vote,
-.article-summary {
+.article-summary,
+.article-elements {
   margin: 10px 10px 0 10px;
+}
+.article-elements p {
+  padding: 20px 150px;
+  text-align: center;
 }
 
 .article-vote {
@@ -416,11 +423,9 @@ input[type="submit"] {
 .instructions-write ul,
 .instructions-write h3,
 .instructions-register h3,
-.instructions-login h3 {
-  color: var(--text-color);
-}
-
-.instructions-register p {
+.instructions-login h3,
+.instructions-register p,
+.article-elements  {
   color: var(--text-color);
 }
 
