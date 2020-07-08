@@ -1,5 +1,6 @@
 <%= form_with(model: @user) do |form|%>
-  <%= form.text_field :name%>
+  <%= form.label :name, "Change your username"%>
+  <%= form.text_field :name, placeholder: "Enter your new name..."%>
   <%= form.submit "Update" %>
 <% end %>
 

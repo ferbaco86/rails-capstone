@@ -4,8 +4,8 @@ module ApplicationHelper
   end
 
   def is_user?
-    edit_link = link_to("Edit", edit_user_path(@user))
-    delete_link = link_to(" Delete",user_path(@user), method: :delete, data: {confirm: "Are you sure?"})
+    edit_link = link_to("Edit", edit_user_path(@user),class: "article-vote")
+    delete_link = link_to(" Delete",user_path(@user), method: :delete, data: {confirm: "Are you sure?"},class: "article-vote")
      
     if session[:user_id].to_s != params[:id].to_s
       content_tag(:h3, "You're not allowed to edit this user")
