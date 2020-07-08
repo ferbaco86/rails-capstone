@@ -4,7 +4,7 @@ class CategoriesController < ApplicationController
   end
 
   def index
-    @categories = Category.categories_priority
+    @categories = Category.categories_priority.includes(:articles)
     @featured_article = Article.featured_article
   end
 
@@ -18,11 +18,11 @@ class CategoriesController < ApplicationController
   end
 
   def edit
-    @category = Category.find(params[:id])
+    @category = obtain_category
   end
 
   def update
-    @category = Category.find(params[:id])
+    @category = obtain_category
     @category.update(category_params)
 
     redirect_to(root_path)
@@ -30,7 +30,7 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    @category = Category.find(params[:id])
+    @category = obtain_category
     @category.destroy
 
     redirect_to(root_path)
@@ -39,5 +39,9 @@ class CategoriesController < ApplicationController
   private
   def category_params
     params.require(:categories).permit(:name, :priority)
+  end
+
+  def obtain_category
+    Category.find(params[:id])
   end
 end

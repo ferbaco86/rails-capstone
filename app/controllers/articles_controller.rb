@@ -5,8 +5,8 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    category = Category.find(params[:format])
-    @articles = category.latest_articles
+    category = Category.includes(:articles).find(params[:format])
+    @articles = category.latest_articles.includes(:categories)
   end
 
   def show

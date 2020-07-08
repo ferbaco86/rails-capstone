@@ -14,14 +14,6 @@ module ApplicationHelper
     end
   end
 
-  def show_users(users)
-    content_tag :ul do
-      users.collect do |user|
-        concat(content_tag(:li, link_to("#{user.name}", user_path(user.id))))
-      end
-    end
-  end
-
   def show_articles(articles)
     
     content_tag :div, class: "articles-container" do
@@ -34,7 +26,7 @@ module ApplicationHelper
         article_title = link_to(content_tag(:h3, article.title),article_path(article),class: "article-title")
         article_text = content_tag(:p, article.text.truncate_words(20), class: "article-summary")
         article_picture = content_tag(:div, nil, style:"background: no-repeat center/cover url('#{rails_blob_url(article.picture) if article.picture.attached?}');", class: "article-image")
-        article_category = content_tag(:h3, article.categories.take.name, class: "articles-cat-title")
+        article_category = content_tag(:h3, article.categories.includes(:articles).take.name, class: "articles-cat-title")
        
         
         if ((count/2)%2).zero?
