@@ -1,7 +1,7 @@
 <%=form_with(model: @user) do |form|%>
-  <%= form.text_field :name%>
+  <%= form.label :name, "Enter your username"%>
+  <%= form.text_field :name, placeholder: "Enter your name here..."%>
   <%= form.submit "Register"%>
 <%end%>
-<h2><%= @test %></h2>
 
    

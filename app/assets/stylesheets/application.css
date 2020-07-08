@@ -229,8 +229,9 @@ main,
 .nav-right,
 .categories-container,
 .articles-container,
-.instructions,
-.create-art-container {
+.instructions-write,
+.create-art-container,
+.instructions-register {
   flex-grow: 1;
 }
 
@@ -257,7 +258,8 @@ main,
 
 .featured-article::before,
 .cat-article::before,
-.instructions::before {
+.instructions-write::before,
+.instructions-register::before {
   content: "";
   background: linear-gradient(180deg, rgba(0,0,0,0.35056029247636555) 9%, rgba(255,255,255,0.0536415249693627) 50%, rgba(0,0,0,0.35056029247636555) 84%);
   width: 100%;
@@ -361,12 +363,18 @@ input[type="submit"] {
   margin-top: 50px;
 }
 
-.instructions {
+.instructions-write {
   background: no-repeat center/cover url('write.jpg');
   position: relative;
 }
 
-.instructions::after {
+.instructions-register {
+  background: no-repeat center/cover url('ballpen.jpg');
+  position: relative;
+}
+
+.instructions-write::after,
+.instructions-register::after {
   content: "";
   background-color: black;
   position: absolute;
@@ -376,27 +384,35 @@ input[type="submit"] {
   opacity: 0.4;
 }
 
-.instructions h2,
-.instructions h3,
-.instructions ul {
+.instructions-write h2,
+.instructions-write h3,
+.instructions-register h2,
+.instructions-register h3,
+.instructions-write ul {
   padding: 10px;
   z-index: 1;
   position: relative;
 }
 
-.instructions h2 {
+.instructions-write h2,
+.instructions-register h2 {
   color: var(--highlight-color);
   font-family: "chivobold", serif;
   font-weight: 400;
   border-bottom: 3px solid var(--highlight-color);
   width: max-content;
 }
-.instructions ul,
-.instructions h3 {
+.instructions-write ul,
+.instructions-write h3,
+.instructions-register h3 {
   color: var(--text-color);
 }
 
-.instructions ul {
+.instructions-register p {
+  color: var(--text-color);
+}
+
+.instructions-write ul {
   list-style: none;
   font-size: 1.2em;
   margin-top: 60px;
