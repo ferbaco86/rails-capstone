@@ -386,6 +386,9 @@ main,
   position: relative;
 }
 
+.field_with_errors { 
+  display: inline 
+}
 
 .article-vote {
   color: var(--highlight-color);

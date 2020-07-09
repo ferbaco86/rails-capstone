@@ -65,4 +65,8 @@ module ApplicationHelper
       end
       end
   end
+
+  def show_picture(article)
+    rails_blob_url(article.picture) if article.picture.attached?
+  end
 end

@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
       redirect_to root_path, notice: "Article created!"
     else
       
-      render :new
+      redirect_to new_article_path, alert: "#{@article.errors.full_messages}"
     end
   end
 

@@ -1,14 +1,4 @@
-<% if @article.errors.any? %>
-    <div id="error_explanation" class= "d-flex a-items-center">
-      <h2><%= pluralize(@article.errors.count, "error") %> not allowed this user from being saved:</h2>
 
-      <ul>
-        <% @article.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
 
 <%=form_with(model: @article, local: true, html: {class: "d-flex flex-column"})  do |form|%>
   <%= form.label :title, "Title " %>

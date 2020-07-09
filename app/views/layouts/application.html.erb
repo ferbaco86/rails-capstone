@@ -31,9 +31,9 @@
       </div>
     </nav>
         <% flash.each do |type, msg| %>
-      <div class= "notice-messages">
-        <%= msg %>
-      </div>
+          <div class= "notice-messages">
+            <%= msg %>
+        </div>
     <% end %>
     <main class= "d-flex flex-column">
       <%= yield %>
