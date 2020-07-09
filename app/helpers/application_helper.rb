@@ -22,11 +22,16 @@ module ApplicationHelper
         art_vote = link_to(content_tag(:span, 'Vote for this article'), article_votes_path(article_id: article.id), 
         class: "article-vote",
         method: :post) if signed_in?
+        edit_article = link_to(content_tag(:span, 'Edit article'), edit_article_path(article.id), 
+        class: "article-vote") if article.author.id == session[:user_id]
         article_author = content_tag(:strong,"by #{article.author.name}", class: "article-author") + art_vote
-        article_title = link_to(content_tag(:h3, article.title),article_path(article),class: "article-title")
+        article_title = content_tag(:div,
+                                        link_to(content_tag(:h3, article.title),
+                                        article_path(article),
+                                        class: "article-title") + edit_article, class: "d-flex a-items-center")
         article_text = content_tag(:p, article.text.truncate_words(20), class: "article-summary")
         article_picture = content_tag(:div, nil, style:"background: no-repeat center/cover url('#{rails_blob_url(article.picture) if article.picture.attached?}');", class: "article-image")
-        article_category = content_tag(:h3, article.categories.includes(:articles).take.name, class: "articles-cat-title")
+        article_category = content_tag(:h3, article.categories.take.name, class: "articles-cat-title")
        
         
         if ((count/2)%2).zero?
@@ -37,7 +42,7 @@ module ApplicationHelper
         else
           concat(content_tag(:article, 
           article_picture + content_tag(:div, 
-            article_category + article_title + article_author + article_text, 
+            article_category + article_title + article_author + edit_article + article_text, 
             class: "article-preview" ),class: "d-flex row-reverse"))
         end
         count+=1

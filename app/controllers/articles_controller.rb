@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
+    @article = obtain_article
   end
 
   def create
@@ -29,14 +29,15 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article = Article.find(params[:id])
+    @article = obtain_article
+    @categories =  Category.all
   end
 
   def update
-    @article = Article.find(params[:id])
+    @article = obtain_article
     @article.update(article_params)
 
-    redirect_to(root_path)
+    redirect_to @article, notice: "Article Updated!" 
   end
 
   def destroy
@@ -53,5 +54,9 @@ class ArticlesController < ApplicationController
 
   def category_params
     params.require(:category).permit(:id)
+  end
+
+  def obtain_article
+    Article.find(params[:id])
   end
 end

@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 
   def show
     @user = obtain_user
+    @articles = @user.articles
   end
 
   def edit
@@ -28,9 +29,11 @@ class UsersController < ApplicationController
 
   def update
     @user = obtain_user
-    @user.update(user_params)
+    if @user.update(user_params)
+      session[:name] = @user.name
 
-    redirect_to(root_path)
+      redirect_to root_path, notice: "User updated successfully!"
+    end
   end
 
   def destroy

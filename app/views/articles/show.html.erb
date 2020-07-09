@@ -1,22 +1,3 @@
-
-<!--<article class="d-flex">
-    <div class="article-image" style ="background: no-repeat center/cover url('<%= rails_blob_url(@article.picture) %>');">
-    </div>
-    <div class= "article-preview">
-      <h2 class= "font-s-2 featured-article-title article-content ">
-          <%= @article.title%>
-      </h2>
-      <div class= "article-author">
-        <strong>By <%= @article.author.name%></strong>
-        <%=link_to(content_tag(:span, 'Vote for this article'), article_votes_path(article_id: @article.id), 
-            class: "article-vote",
-            method: :post)%>
-      </div>
-      <div class="font-s-1-2">
-        <p><%= @article.text%></p>
-      </div>
-    </div>
-</article>-->
 <div class = "d-flex create-art-container">
   <div class= "full-article-image" style ="background: no-repeat center/cover url('<%= show_picture(@article) %>');">
   <h1></h1>

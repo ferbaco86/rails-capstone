@@ -1,8 +1,8 @@
 <div class= "centered-container">
   <h2 class= "user-title">
     <%= @user.name %>   User page
-  </h2>
-  <div>
     <%= is_user? %>
-  </div>
+  </h2>
 </div>
+<h2 class= "articles-cat-title mb-20">Your Articles</h2>
+<%=show_articles(@articles)%>
