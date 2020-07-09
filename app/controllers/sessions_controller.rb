@@ -8,7 +8,11 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       session[:name] = @user.name
 
-      redirect_to(root_path)
+      redirect_to root_path, notice: "Welcome to the Den #{session[:name]}"
+    
+    else
+      flash.now[:error] = "Incorrect user"
+      render :log_in
     end
   end
 
@@ -20,6 +24,6 @@ class SessionsController < ApplicationController
     session.delete(:user_id)
     session.delete(:username)
 
-    redirect_to root_path
+    redirect_to root_path, alert: "See you soon!"
   end
 end

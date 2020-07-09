@@ -10,10 +10,9 @@ class UsersController < ApplicationController
 
       session[:user_id] = @user.id
       session[:name] = @user.name
-      #flash.notice = "Welcome  '#{@user.name}'!"
-      redirect_to(articles_path)
+      redirect_to root_path, notice: "#{session[:name]} you were succesfully created"
+      #notice: "#{session[:name]} you were succesfully created" 
     else
-      @test = "TEEEEESTTT"
       render :new
     end
 
@@ -37,8 +36,10 @@ class UsersController < ApplicationController
   def destroy
     @user = obtain_user
     @user.destroy
+    session.delete(:user_id)
+    session.delete(:username)
 
-    redirect_to(articles_path)
+    redirect_to root_path, alert: "User eliminated!"
   end
 
   private

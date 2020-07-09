@@ -30,10 +30,15 @@
           <%end%>
       </div>
     </nav>
+        <% flash.each do |type, msg| %>
+      <div class= "notice-messages">
+        <%= msg %>
+      </div>
+    <% end %>
     <main class= "d-flex flex-column">
       <%= yield %>
     </main>
-    <footer class='nav-container lato-font d-flex j-content-between m-lr-20'>
+    <footer class='lato-font d-flex j-content-between'>
       <div>
           <%=link_to("HOME", root_path, class: "nav-links")%>
       </div>

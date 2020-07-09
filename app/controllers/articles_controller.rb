@@ -5,8 +5,8 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    category = Category.includes(:articles).find(params[:format])
-    @articles = category.latest_articles.includes(:categories)
+    category = Category.find(params[:format])
+    @articles = category.latest_articles.includes(article_categories: :article)
   end
 
   def show
@@ -21,7 +21,10 @@ class ArticlesController < ApplicationController
       @article.save
 
 
-      redirect_to(root_path)
+      redirect_to root_path, notice: "Article created!"
+    else
+      
+      render :new
     end
   end
 
