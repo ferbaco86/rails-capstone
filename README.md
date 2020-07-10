@@ -140,4 +140,4 @@ My Microverse Stand Up Team for support and guidance
 
 ## 📝 License
 
-This project is MIT licensed.
+This project is [MIT](https://github.com/ferbaco86/rails-capstone/blob/develop/LICENSE) licensed.
