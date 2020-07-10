@@ -16,38 +16,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;700&family=Source+Sans+Pro:wght@400;600&display=swap');
 
-@font-face {
-  font-family: 'CartoGothic Std Book';
-  font-style: normal;
-  font-weight: normal;
-  src: url(asset-path('/assets/fonts/CartoGothicStd-Book.woff')) format('woff');
-}
-
-@font-face {
-  font-family: 'CartoGothic Std Bold';
-  font-style: normal;
-  font-weight: normal;
-  src: url(asset-path('/assets/fonts/CartoGothicStd-Bold.woff')) format('woff');
-}
-
-@font-face {
-  font-family: 'chivobold';
-  src:
-  url(asset-path('/assets/fonts/chivo-bold-webfont.woff2')) format('woff2'),
-  url(asset-path('/assets/fonts/chivo-bold-webfont.woff')) format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'chivoregular';
-  src:
-    url(asset-path('/assets/fonts/chivo-regular-webfont.woff2')) format('woff2'),
-    url(asset-path('/assets/fonts/chivo-regular-webfont.woff')) format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
 
 /* CSS RESET */
 
@@ -90,7 +60,7 @@ body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  font-family: 'CartoGothic Std Book', 'open-sans', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   background-color: #4e443e;
 }
 
@@ -134,8 +104,18 @@ select {
   font-family: 'Lato', sans-serif;
 }
 
-.cartogothic-font {
-  font-family: "CartoGothic Std Book", sans-serif;
+.chivo-regular {
+  font-family: 'Chivo', sans-serif;
+  font-weight: 400;
+}
+
+.chivo-bold {
+  font-family: 'Chivo', sans-serif;
+  font-weight: 700;
+}
+
+.source-sans-pro {
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .font-s-2 {
@@ -246,10 +226,8 @@ footer p {
 }
 
 .featured-article-title {
-  font-family: "chivobold", serif;
   text-decoration: none;
   font-size: 1.5em;
-  font-weight: 400;
   color: var(--highlight-color);
 }
 
@@ -292,7 +270,6 @@ footer p {
 .user-title,
 .cat-article h3 {
   color: var(--text-color);
-  font-family: "chivobold", serif;
   font-weight: 400;
   z-index: 1;
 }
@@ -345,8 +322,6 @@ footer p {
   border-bottom: 3px solid var(--highlight-color);
   width: max-content;
   height: max-content;
-  font-family: "chivobold", serif;
-  font-weight: 400;
 }
 
 .articles-auto-width {
@@ -355,9 +330,7 @@ footer p {
 
 .article-title {
   color: var(--text-color-dark);
-  font-family: "chivoregular", serif;
   text-decoration: none;
-  font-weight: 400;
 }
 
 .articles-cat-title,
@@ -391,7 +364,7 @@ footer p {
 
 label {
   color: var(--highlight-color);
-  font-family: "chivoregular", serif;
+  font-family: 'Chivo', sans-serif;
   padding: 5px;
 }
 
@@ -447,8 +420,8 @@ input[type="submit"] {
 .instructions-register h2,
 .instructions-login h2 {
   color: var(--highlight-color);
-  font-family: "chivobold", serif;
-  font-weight: 400;
+  font-family: 'Chivo', sans-serif;
+  font-weight: 700;
   border-bottom: 3px solid var(--highlight-color);
   width: max-content;
 }

@@ -38,7 +38,7 @@ module ApplicationHelper
         article_title = content_tag(:div,
                                     link_to(content_tag(:h3, article.title),
                                             article_path(article),
-                                            class: 'article-title'), class: 'd-flex a-items-center')
+                                            class: 'article-title chivo-regular'), class: 'd-flex a-items-center')
         article_text = content_tag(:p, article.text.truncate_words(20), class: 'article-summary')
         bg_style = "background: no-repeat center/cover url('#{if article.picture.attached?
                                                                 rails_blob_url(article.picture)
@@ -79,7 +79,7 @@ module ApplicationHelper
 
         concat(content_tag(:article,
                            (category_name + article_title),
-                           style: art_picture, class: 'cat-article d-flex flex-column j-content-between'))
+                           style: art_picture, class: 'cat-article chivo-bold d-flex flex-column j-content-between'))
       end
     end
   end
