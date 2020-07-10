@@ -11,7 +11,6 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       session[:name] = @user.name
       redirect_to root_path, notice: "#{session[:name]} you were succesfully created"
-      #notice: "#{session[:name]} you were succesfully created" 
     else
       render :new
     end
