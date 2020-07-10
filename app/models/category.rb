@@ -7,7 +7,6 @@ class Category < ApplicationRecord
   
   scope :categories_priority, -> { order("priority DESC") }
 
-
   def latest_articles
     self.articles.order(created_at: :desc)
   end
