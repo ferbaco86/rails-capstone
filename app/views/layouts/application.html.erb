@@ -8,13 +8,14 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <script src="https://kit.fontawesome.com/17f821a36f.js" crossorigin="anonymous"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag asset_path('favicon.png') %>
   </head>
 
   <body class= "d-flex flex-column">
     <nav>
       <div class='nav-container lato-font d-flex j-content-between m-lr-20'>
         <div class = 'nav-home'>
-          <%=link_to("HOME", root_path, class: "nav-links")%>
+          <%=link_to(image_tag("den.png", size: "150x50", alt: "icon"), root_path, class: "nav-links")%>
         </div>
         <div class="d-flex j-content-around a-items-center nav-right">
           <% if signed_in? %>
@@ -40,7 +41,7 @@
     </main>
     <footer class='lato-font d-flex j-content-between'>
       <div>
-          <%=link_to("HOME", root_path, class: "nav-links")%>
+          <%=link_to(image_tag("den.png", size: "125x40", alt: "icon"), root_path, class: "nav-links")%>
       </div>
       <div>
         <p>Copyright 2020. All rights reserved</p>
