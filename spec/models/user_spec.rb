@@ -1,7 +1,5 @@
 require_relative '../rails_helper'
 
-# rubocop:disable Metrics/BlockLength
-
 RSpec.describe User, type: :model do
   context 'creating user' do
     it 'name cannot be blank ' do
@@ -34,7 +32,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  context 'user methods' do
+  context 'user scope' do
     let(:luke) { User.create(name: 'Luke') }
 
     it 'returns the user based on id' do
@@ -43,5 +41,4 @@ RSpec.describe User, type: :model do
     end
 
   end
-  # rubocop:enable Metrics/BlockLength
 end
