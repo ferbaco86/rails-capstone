@@ -34,14 +34,12 @@ RSpec.describe Article, type: :model do
     let(:luke) { User.create(name: 'Luke') }
     let(:article_1) { Article.create(title: 'New Title', text: 'content', author_id: luke.id) }
     let(:article_2) { Article.create(title: 'Another Title', text: 'more content', author_id: luke.id) }
-    let(:vote) {Vote.create(user_id: luke.id, article_id: article_1.id)}
-    
+    let(:vote) { Vote.create(user_id: luke.id, article_id: article_1.id) }
 
     it 'returns the article with most votes' do
       article_1
       article_2
       expect(Article.featured_article).to eq(article_1)
     end
-
   end
 end

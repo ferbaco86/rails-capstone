@@ -15,8 +15,8 @@ RSpec.describe User, type: :model do
     end
     it 'User can vote' do
       article
-      vote = user.votes.create(article_id: article.id)
-      
+      user.votes.create(article_id: article.id)
+
       expect(Vote.first.article_id).to eql(article.id)
     end
   end
@@ -39,6 +39,5 @@ RSpec.describe User, type: :model do
       luke
       expect(User.find_user(luke.id)).to include(luke)
     end
-
   end
 end

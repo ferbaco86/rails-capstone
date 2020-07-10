@@ -10,11 +10,11 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new(category_params)
-    if @category.isvalid?
-      @category.save
+    return unless @category.isvalid?
 
-      redirect_to(root_path)
-    end
+    @category.save
+
+    redirect_to(root_path)
   end
 
   def edit
@@ -26,7 +26,6 @@ class CategoriesController < ApplicationController
     @category.update(category_params)
 
     redirect_to(root_path)
-
   end
 
   def destroy
@@ -37,6 +36,7 @@ class CategoriesController < ApplicationController
   end
 
   private
+
   def category_params
     params.require(:categories).permit(:name, :priority)
   end

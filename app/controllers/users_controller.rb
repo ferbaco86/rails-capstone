@@ -14,7 +14,6 @@ class UsersController < ApplicationController
     else
       render :new
     end
-
   end
 
   def show
@@ -28,11 +27,11 @@ class UsersController < ApplicationController
 
   def update
     @user = obtain_user
-    if @user.update(user_params)
-      session[:name] = @user.name
+    return unless @user.update(user_params)
 
-      redirect_to root_path, notice: "User updated successfully!"
-    end
+    session[:name] = @user.name
+
+    redirect_to root_path, notice: 'User updated successfully!'
   end
 
   def destroy
@@ -41,10 +40,11 @@ class UsersController < ApplicationController
     session.delete(:user_id)
     session.delete(:username)
 
-    redirect_to root_path, alert: "User eliminated!"
+    redirect_to root_path, alert: 'User eliminated!'
   end
 
   private
+
   def user_params
     params.require(:user).permit(:name)
   end

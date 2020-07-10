@@ -17,17 +17,17 @@ RSpec.describe 'Webpage workflow', type: :system do
       click_on 'Login'
       expect(page).to have_content('Welcome to the Den Frodo')
       sleep(3)
-      find("#user-name").click 
-      find("#user-edit").click
+      find('#user-name').click
+      find('#user-edit').click
       sleep(3)
       expect(page).to have_content('Change your username')
       fill_in 'name', with: 'Gollum'
       click_on 'Update'
       expect(page).to have_content('User updated successfully!')
       sleep(3)
-      find("#user-name").click 
+      find('#user-name').click
       accept_alert do
-        find("#user-delete").click
+        find('#user-delete').click
       end
       expect(page).to have_content('User eliminated!')
       sleep(3)

@@ -6,8 +6,8 @@ RSpec.describe 'articles workflow', type: :system do
       Category.create(name: 'Comics', priority: 1)
       User.create(name: 'Peter')
     end
-    
-    it "logs in and creates an article" do
+
+    it 'logs in and creates an article' do
       visit root_path
       click_on 'LOG IN'
       fill_in 'name', with: 'Peter'

@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
-  def new
-  end
+  def new; end
 
   def create
     @user = User.find_by(name: params[:name_login])
@@ -9,9 +8,9 @@ class SessionsController < ApplicationController
       session[:name] = @user.name
 
       redirect_to root_path, notice: "Welcome to the Den #{session[:name]}"
-    
+
     else
-      flash.now[:error] = "Incorrect user"
+      flash.now[:error] = 'Incorrect user'
       render :log_in
     end
   end
@@ -24,6 +23,6 @@ class SessionsController < ApplicationController
     session.delete(:user_id)
     session.delete(:username)
 
-    redirect_to root_path, alert: "See you soon!"
+    redirect_to root_path, alert: 'See you soon!'
   end
 end

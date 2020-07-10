@@ -20,24 +20,23 @@ class ArticlesController < ApplicationController
       @article.article_categories.build(category_id: category_params[:id]).save
       @article.save
 
-
-      redirect_to @article, notice: "Article created!"
+      redirect_to @article, notice: 'Article created!'
     else
-      
-      redirect_to new_article_path, alert: "#{@article.errors.full_messages}"
+
+      redirect_to new_article_path, alert: @article.errors.full_messages.to_s
     end
   end
 
   def edit
     @article = obtain_article
-    @categories =  Category.all
+    @categories = Category.all
   end
 
   def update
     @article = obtain_article
     @article.update(article_params)
 
-    redirect_to @article, notice: "Article Updated!" 
+    redirect_to @article, notice: 'Article Updated!'
   end
 
   def destroy
@@ -46,8 +45,9 @@ class ArticlesController < ApplicationController
 
     redirect_to(root_path)
   end
-  
+
   private
+
   def article_params
     params.require(:article).permit(:title, :text, :picture)
   end

@@ -4,7 +4,6 @@ RSpec.describe Vote, type: :model do
     let(:article) { Article.create(title: 'Title test', text: 'Test article content', author_id: user.id) }
     let(:vote) { Vote.create(user_id: user.id, article_id: article.id) }
 
-
     it 'voted article content to be Test article content' do
       expect(vote.article.text).to eql('Test article content')
     end
