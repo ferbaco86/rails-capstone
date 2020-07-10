@@ -248,7 +248,7 @@ DEPENDENCIES
   pg
   puma (~> 3.11)
   rails (~> 5.2.3)
-  rspec-rails (~> 4.0.0)
+  rspec-rails (~> 4.0.1)
   rubocop (~> 0.81.0)
   sass-rails (~> 5.0)
   selenium-webdriver
