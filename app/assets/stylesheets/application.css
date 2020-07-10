@@ -14,45 +14,44 @@
  *= require_self
  */
 
- @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
- @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 
 @font-face {
   font-family: 'CartoGothic Std Book';
   font-style: normal;
   font-weight: normal;
   src: local('CartoGothic Std Book'), url('/assets/CartoGothicStd-Book.woff') format('woff');
-  }
-  
-  @font-face {
+}
+
+@font-face {
   font-family: 'CartoGothic Std Bold';
   font-style: normal;
   font-weight: normal;
   src: local('CartoGothic Std Bold'), url('/assets/CartoGothicStd-Bold.woff') format('woff');
-  }
-  
-  @font-face {
-    font-family: 'chivobold';
-    src: url('/assets/chivo-bold-webfont.woff2') format('woff2'),
-         url('/assets/chivo-bold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
 }
 
 @font-face {
-    font-family: 'chivoregular';
-    src: url('/assets/chivo-regular-webfont.woff2') format('woff2'),
-         url('/assets/chivo-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
+  font-family: 'chivobold';
+  src:
+    url('/assets/chivo-bold-webfont.woff2') format('woff2'),
+    url('/assets/chivo-bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
- /* CSS RESET */
+@font-face {
+  font-family: 'chivoregular';
+  src:
+    url('/assets/chivo-regular-webfont.woff2') format('woff2'),
+    url('/assets/chivo-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
- /* Box sizing rules */
+/* CSS RESET */
 
+/* Box sizing rules */
 
 *,
 *::before,
@@ -64,6 +63,7 @@
 ul[class],
 ol[class] {
   padding: 0;
+  list-style: none;
 }
 
 /* Remove default margin */
@@ -90,14 +90,8 @@ body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  font-family: 'CartoGothic Std Book','open-sans',sans-serif;
+  font-family: 'CartoGothic Std Book', 'open-sans', sans-serif;
   background-color: #4e443e;
-}
-
-/* Remove list styles on ul, ol elements with a class attribute */
-ul[class],
-ol[class] {
-  list-style: none;
 }
 
 /* A elements that don't have a class get default styles */
@@ -124,20 +118,10 @@ select {
   font: inherit;
 }
 
-/* Remove all animations and transitions for people that prefer not to see them */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
 /* colors */
 
 :root {
-  --nav-bg-color: #fff; 
+  --nav-bg-color: #fff;
   --nav-links-color: #b8b6b2;
   --highlight-color: #fa6000;
   --text-color: #f0ebeb;
@@ -151,15 +135,15 @@ select {
 }
 
 .cartogothic-font {
-  font-family: "CartoGothic Std Book"
+  font-family: "CartoGothic Std Book", sans-serif;
 }
 
-.font-s-2{
-  font-size: 2em!important;
+.font-s-2 {
+  font-size: 2em !important;
 }
 
 .font-s-1-2 {
-  font-size: 1.2em!important;
+  font-size: 1.2em !important;
 }
 
 /* display */
@@ -205,7 +189,7 @@ select {
 }
 
 .mb-20 {
-  margin-bottom: 20px!important;
+  margin-bottom: 20px !important;
 }
 
 /* navigation */
@@ -214,9 +198,9 @@ nav {
   background-color: var(--nav-bg-color);
   font-size: 0.9em;
   text-transform: uppercase;
-  -webkit-box-shadow: inset 0px -14px 16px -20px rgba(0,0,0,0.5);
--moz-box-shadow: inset 0px -14px 16px -20px rgba(0,0,0,0.5);
-box-shadow: inset 0px -14px 16px -20px rgba(0,0,0,0.5);
+  -webkit-box-shadow: inset 0 -14px 16px -20px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: inset 0 -14px 16px -20px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 -14px 16px -20px rgba(0, 0, 0, 0.5);
 }
 
 .nav-container {
@@ -236,7 +220,7 @@ box-shadow: inset 0px -14px 16px -20px rgba(0,0,0,0.5);
 /* Main section */
 
 main {
-flex: 1 0 auto;
+  flex: 1 0 auto;
 }
 
 main,
@@ -249,6 +233,10 @@ main,
 .instructions-login,
 .full-article-image {
   flex-grow: 1;
+}
+
+footer p {
+  color: var(--text-color);
 }
 
 .featured-article-title,
@@ -279,14 +267,14 @@ main,
 .instructions-login::before,
 .full-article-image::before {
   content: "";
-  background: linear-gradient(180deg, rgba(0,0,0,0.35056029247636555) 9%, rgba(255,255,255,0.0536415249693627) 50%, rgba(0,0,0,0.35056029247636555) 84%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35056029247636555) 9%, rgba(255, 255, 255, 0.0536415249693627) 50%, rgba(0, 0, 0, 0.35056029247636555) 84%);
   width: 100%;
   height: 100%;
   position: absolute;
 }
 
 .article-content {
-  background-color:rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   z-index: 1;
 }
 
@@ -315,11 +303,12 @@ main,
   font-size: 1.3em;
 }
 
-#error_explanation{
+#error_explanation {
   display: flex;
   width: 100%;
   color: var(--text-color);
 }
+
 .centered-container {
   margin-left: auto;
   margin-right: auto;
@@ -336,8 +325,8 @@ main,
 
 .articles-container {
   display: grid;
-  grid-template-columns: repeat(2,1fr);
-  grid-template-rows: repeat(2,1fr);
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
 }
 
 .article-image {
@@ -351,13 +340,12 @@ main,
   display: grid;
 }
 
-
 .articles-cat-title {
-  color:var(--highlight-color);
+  color: var(--highlight-color);
   border-bottom: 3px solid var(--highlight-color);
   width: max-content;
   height: max-content;
-  font-family: "chivobold",serif;
+  font-family: "chivobold", serif;
   font-weight: 400;
 }
 
@@ -391,8 +379,8 @@ main,
   position: relative;
 }
 
-.field_with_errors { 
-  display: inline 
+.field_with_errors {
+  display: inline;
 }
 
 .article-vote {
@@ -403,7 +391,7 @@ main,
 
 label {
   color: var(--highlight-color);
-  font-family: "chivoregular";
+  font-family: "chivoregular", serif;
   padding: 5px;
 }
 
@@ -464,6 +452,7 @@ input[type="submit"] {
   border-bottom: 3px solid var(--highlight-color);
   width: max-content;
 }
+
 .instructions-write ul,
 .instructions-write h3,
 .instructions-register h3,
@@ -478,7 +467,7 @@ input[type="submit"] {
   margin-top: 60px;
 }
 
-.social-icon { 
+.social-icon {
   color: var(--highlight-color);
   font-size: 1.6em;
   margin-left: 10px;
@@ -486,12 +475,8 @@ input[type="submit"] {
 
 footer {
   flex-shrink: 0;
-  -webkit-box-shadow: inset 0px 4px 5px -4px rgba(0,0,0,0.75);
--moz-box-shadow: inset 0px 4px 5px -4px rgba(0,0,0,0.75);
-box-shadow: inset 0px 4px 5px -4px rgba(0,0,0,0.75);
-padding: 20px 20px
-}
-
-footer p {
-  color: var(--text-color);
+  -webkit-box-shadow: inset 0 4px 5px -4px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: inset 0 4px 5px -4px rgba(0, 0, 0, 0.75);
+  box-shadow: inset 0 4px 5px -4px rgba(0, 0, 0, 0.75);
+  padding: 20px 20px;
 }
