@@ -31,3 +31,5 @@
 /config/master.key
 
 .DS_Store
+# Ignore application configuration
+/config/application.yml
