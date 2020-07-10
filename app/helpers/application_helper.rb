@@ -4,8 +4,8 @@ module ApplicationHelper
   end
 
   def is_user?
-    edit_link = link_to("Edit", edit_user_path(@user),class: "article-vote")
-    delete_link = link_to(" Delete",user_path(@user), method: :delete, data: {confirm: "Are you sure?"},class: "article-vote")
+    edit_link = link_to(content_tag(:i, nil, class: "fas fa-user-edit"), edit_user_path(@user),class: "article-vote")
+    delete_link = link_to(content_tag(:i, nil, class: "fas fa-user-times"),user_path(@user), method: :delete, data: {confirm: "Are you sure?"},class: "article-vote")
      
     if session[:user_id].to_s != params[:id].to_s
       content_tag(:h3, "You're not allowed to edit this user")
@@ -19,16 +19,15 @@ module ApplicationHelper
     content_tag :div, class: "articles-container" do
       count = 0
       articles.collect do |article|
-        art_vote = link_to(content_tag(:span, 'Vote for this article'), article_votes_path(article_id: article.id), 
+        votes_number = content_tag(:span,article.votes_count)
+        art_vote = link_to(content_tag(:i, nil, class: "far fa-thumbs-up"), article_votes_path(article_id: article.id), 
         class: "article-vote",
         method: :post) if signed_in?
-        edit_article = link_to(content_tag(:span, 'Edit article'), edit_article_path(article.id), 
-        class: "article-vote") if article.author.id == session[:user_id]
-        article_author = content_tag(:strong,"by #{article.author.name}", class: "article-author") + art_vote
+        article_author = content_tag(:div, content_tag(:strong,"by #{article.author.name}", class: "article-author") + art_vote + votes_number)
         article_title = content_tag(:div,
                                         link_to(content_tag(:h3, article.title),
                                         article_path(article),
-                                        class: "article-title") + edit_article, class: "d-flex a-items-center")
+                                        class: "article-title"), class: "d-flex a-items-center")
         article_text = content_tag(:p, article.text.truncate_words(20), class: "article-summary")
         article_picture = content_tag(:div, nil, style:"background: no-repeat center/cover url('#{rails_blob_url(article.picture) if article.picture.attached?}');", class: "article-image")
         article_category = content_tag(:h3, article.categories.take.name, class: "articles-cat-title")
@@ -42,7 +41,7 @@ module ApplicationHelper
         else
           concat(content_tag(:article, 
           article_picture + content_tag(:div, 
-            article_category + article_title + article_author + edit_article + article_text, 
+            article_category + article_title + article_author + article_text, 
             class: "article-preview" ),class: "d-flex row-reverse"))
         end
         count+=1

@@ -6,11 +6,19 @@
       <h2 class="articles-cat-title articles-auto-width font-s-2">
           <%= @article.title%>
       </h2>
-      <div class="article-author">
-        <strong>By <%= @article.author.name%></strong>
-        <%=link_to(content_tag(:span, 'Vote for this article'), article_votes_path(article_id: @article.id), 
-            class: "article-vote",
-            method: :post) if signed_in?%>
+      <div class="article-author d-flex a-items-center j-content-between ">
+        <div>
+          <strong>By <%= @article.author.name%></strong>
+          <%=link_to(content_tag(:i, nil, class: "far fa-thumbs-up"), article_votes_path(article_id: @article.id), 
+              class: "article-vote",
+              method: :post) if signed_in?%>
+          <strong><%= @article.votes_count%></strong>
+        </div>
+        <div>
+          <%=link_to(content_tag(:i, nil, class: "far fa-edit"), edit_article_path(@article.id), 
+          class: "article-vote") if @article.author.id == session[:user_id]%>
+        </div>
+            
       </div>
       <div class="font-s-1-2 article-text">
         <p><%= @article.text%></p>

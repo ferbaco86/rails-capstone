@@ -6,7 +6,9 @@ class VotesController < ApplicationController
     @vote = User.find(session["user_id"]).votes.new(article_id: params[:article_id])
 
     if @vote.save
-      redirect_to(root_path)
+      redirect_to article_path(@vote.article_id), notice: "Vote counted!"
+    else
+      redirect_to article_path(@vote.article_id), alert: "You can't vote twice!"
     end
   end
 
