@@ -21,21 +21,21 @@
   font-family: 'CartoGothic Std Book';
   font-style: normal;
   font-weight: normal;
-  src: font-url('/assets/CartoGothicStd-Book.woff') format('woff');
+  src: url(asset-path('/assets/CartoGothicStd-Book.woff')) format('woff');
 }
 
 @font-face {
   font-family: 'CartoGothic Std Bold';
   font-style: normal;
   font-weight: normal;
-  src: font-url('/assets/CartoGothicStd-Bold.woff') format('woff');
+  src: url(asset-path('/assets/CartoGothicStd-Bold.woff')) format('woff');
 }
 
 @font-face {
   font-family: 'chivobold';
   src:
-    font-url('/assets/chivo-bold-webfont.woff2') format('woff2'),
-    font-url('/assets/chivo-bold-webfont.woff') format('woff');
+  url(asset-path('/assets/chivo-bold-webfont.woff2')) format('woff2'),
+  url(asset-path('/assets/chivo-bold-webfont.woff')) format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -43,8 +43,8 @@
 @font-face {
   font-family: 'chivoregular';
   src:
-    font-url('/assets/chivo-regular-webfont.woff2') format('woff2'),
-    font-url('/assets/chivo-regular-webfont.woff') format('woff');
+    url(asset-path('/fonts/chivo-regular-webfont.woff2')) format('woff2'),
+    url(asset-path('/assets/chivo-regular-webfont.woff')) format('woff');
   font-weight: normal;
   font-style: normal;
 }
