@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
       @article.save
 
 
-      redirect_to root_path, notice: "Article created!"
+      redirect_to @article, notice: "Article created!"
     else
       
       redirect_to new_article_path, alert: "#{@article.errors.full_messages}"
