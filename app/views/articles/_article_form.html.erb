@@ -7,13 +7,18 @@
   <%= form.text_area :text, placeholder: "Write your heart out here...",size: "1x10"  %>
   <%= form.label :picture %>
   <%= form.file_field :picture %>
-   <%= form.label "Category " %>
-     <% if @article.categories.empty? %>
-       <%= collection_select(:category, :id, @categories, :id, :name, { selected: @categories.first.id } ) %>
+   <div class = "cat-select-container">
+      <%= form.label "Category " %>
+      <%=link_to(content_tag(:i, nil ,class: "fas fa-plus-circle"), new_category_path, class: "add-cat-btn")%>
+    </div>
+    <% if @article.categories.empty? %>
+        <%= collection_select(:category, :id, @categories, :id, :name, { selected: @categories.first.id } ) unless @categories.blank? %>
      <% else %>
-       <%= collection_select(:category, :id, @categories, :id, :name, { selected: @article.categories.first.id } ) %>
+        <%= collection_select(:category, :id, @categories, :id, :name, { selected: @article.categories.first.id } ) %>
      <% end %>
-
-
-  <%= form.submit "Create Article"%>
+     <%if @categories.blank?%>
+      <h3 class= "alert-cat">Please add category</h3>
+    <%else%>
+      <%= form.submit "Create Article"%>
+    <%end%>
 <%end%>

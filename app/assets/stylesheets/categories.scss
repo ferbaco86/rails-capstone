@@ -14,11 +14,25 @@
   display: grid;
 }
 
+.alert-cat {
+  color: var(--highlight-color);
+  margin-top: 10px;
+}
+
 .cat-link {
   text-decoration: underline;
   text-decoration-color: var(--highlight-color);
   text-decoration-thickness: 3px;
   z-index: 1;
+}
+
+.cat-select-container {
+  margin-top: 10px;
+}
+
+.add-cat-btn {
+  color: var(--text-color);
+  font-size: 1.2em;
 }
 
 .user-title,
