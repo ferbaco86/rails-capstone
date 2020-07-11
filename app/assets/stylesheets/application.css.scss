@@ -171,8 +171,6 @@ select {
   margin-bottom: 20px !important;
 }
 
-/* navigation */
-
 nav {
   background-color: var(--nav-bg-color);
   font-size: 0.9em;
@@ -196,8 +194,6 @@ nav {
   color: var(--nav-links-color);
 }
 
-/* Main section */
-
 main {
   flex: 1 0 auto;
 }
@@ -216,61 +212,6 @@ main,
 
 footer p {
   color: var(--text-color);
-}
-
-.featured-article-title,
-.cat-article h3,
-.article-content p {
-  padding: 10px 20px;
-}
-
-.featured-article-title {
-  text-decoration: none;
-  font-size: 1.5em;
-  color: var(--highlight-color);
-}
-
-.featured-article {
-  width: 100%;
-  color: var(--text-color);
-  position: relative;
-  flex-grow: 3;
-}
-
-.featured-article::before,
-.cat-article::before,
-.instructions-write::before,
-.instructions-register::before,
-.instructions-login::before,
-.full-article-image::before {
-  content: "";
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35056029247636555) 9%, rgba(255, 255, 255, 0.0536415249693627) 50%, rgba(0, 0, 0, 0.35056029247636555) 84%);
-  width: 100%;
-  height: 100%;
-  position: absolute;
-}
-
-.article-content {
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 1;
-}
-
-.categories-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.cat-article {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-.user-title,
-.cat-article h3 {
-  color: var(--text-color);
-  font-weight: 400;
-  z-index: 1;
 }
 
 .notice-messages {
@@ -292,151 +233,8 @@ footer p {
   margin-bottom: 20px;
 }
 
-.cat-link {
-  text-decoration: underline;
-  text-decoration-color: var(--highlight-color);
-  text-decoration-thickness: 3px;
-  z-index: 1;
-}
-
-.articles-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-}
-
-.article-image {
-  width: 100%;
-}
-
-.article-preview {
-  margin-top: 0;
-  width: 100%;
-  background-color: var(--text-color);
-  display: grid;
-}
-
-.articles-cat-title {
-  color: var(--highlight-color);
-  border-bottom: 3px solid var(--highlight-color);
-  width: max-content;
-  height: max-content;
-}
-
-.articles-auto-width {
-  width: auto;
-}
-
-.article-title {
-  color: var(--text-color-dark);
-  text-decoration: none;
-}
-
-.articles-cat-title,
-.article-title,
-.article-author,
-.article-vote,
-.article-summary {
-  margin: 10px 10px 0 10px;
-}
-
-.article-text {
-  padding: 20px 150px;
-  text-align: center;
-  color: var(--text-color-dark);
-}
-
-.full-article-image {
-  width: 100%;
-  position: relative;
-}
-
 .field_with_errors {
   display: inline;
-}
-
-.article-vote {
-  color: var(--highlight-color);
-  text-decoration: none;
-  font-size: 1.5em;
-}
-
-label {
-  color: var(--highlight-color);
-  font-family: 'Chivo', sans-serif;
-  padding: 5px;
-}
-
-form {
-  padding: 10px;
-  flex-grow: 1;
-}
-
-input[type="submit"] {
-  margin-top: 50px;
-}
-
-.instructions-write {
-  background: no-repeat center/cover url('write.jpg');
-  position: relative;
-}
-
-.instructions-register {
-  background: no-repeat center/cover url('ballpen.jpg');
-  position: relative;
-}
-
-.instructions-login {
-  background: no-repeat center/cover url('welcome.jpg');
-  position: relative;
-}
-
-.instructions-write::after,
-.instructions-register::after,
-.instructions-login::after {
-  content: "";
-  background-color: black;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.4;
-}
-
-.instructions-write h2,
-.instructions-write h3,
-.instructions-register h2,
-.instructions-register h3,
-.instructions-login h2,
-.instructions-login h3,
-.instructions-write ul {
-  padding: 10px;
-  z-index: 1;
-  position: relative;
-}
-
-.instructions-write h2,
-.instructions-register h2,
-.instructions-login h2 {
-  color: var(--highlight-color);
-  font-family: 'Chivo', sans-serif;
-  font-weight: 700;
-  border-bottom: 3px solid var(--highlight-color);
-  width: max-content;
-}
-
-.instructions-write ul,
-.instructions-write h3,
-.instructions-register h3,
-.instructions-login h3,
-.instructions-register p {
-  color: var(--text-color);
-}
-
-.instructions-write ul {
-  list-style: none;
-  font-size: 1.2em;
-  margin-top: 60px;
 }
 
 .social-icon {

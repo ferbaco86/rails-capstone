@@ -1,3 +1,48 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.instructions-register {
+  background: no-repeat center/cover url('ballpen.jpg');
+  position: relative;
+}
+
+.instructions-login {
+  background: no-repeat center/cover url('welcome.jpg');
+  position: relative;
+}
+
+.instructions-login h2,
+.instructions-register h2 {
+  color: var(--highlight-color);
+  font-family: 'Chivo', sans-serif;
+  font-weight: 700;
+  border-bottom: 3px solid var(--highlight-color);
+  width: max-content;
+}
+
+.instructions-register h3,
+.instructions-login h3,
+.instructions-register p {
+  color: var(--text-color);
+}
+
+.instructions-register h2,
+.instructions-register h3,
+.instructions-login h2,
+.instructions-login h3 {
+  padding: 10px;
+  z-index: 1;
+  position: relative;
+}
+
+.instructions-register::after,
+.instructions-login::after {
+  content: "";
+  background-color: black;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+}

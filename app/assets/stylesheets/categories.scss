@@ -1,3 +1,40 @@
 // Place all the styles related to the Categories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.full-article-image {
+  width: 100%;
+  position: relative;
+}
+
+.article-preview {
+  margin-top: 0;
+  width: 100%;
+  background-color: var(--text-color);
+  display: grid;
+}
+
+.cat-link {
+  text-decoration: underline;
+  text-decoration-color: var(--highlight-color);
+  text-decoration-thickness: 3px;
+  z-index: 1;
+}
+
+.user-title,
+.cat-article h3 {
+  color: var(--text-color);
+  font-weight: 400;
+  z-index: 1;
+}
+
+.categories-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.cat-article {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
