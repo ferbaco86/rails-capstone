@@ -1,12 +1,1 @@
-<%if @featured_article.blank?%>
-  <h3 class= "articles-cat-title">There's no featured article yet</h3>
-<%else%>
-<article class="featured-article d-flex flex-column j-content-end" style ="background: no-repeat top center/cover url('<%= show_picture(@featured_article) %>');">
-  <div class="article-content">
-    <h2><%=link_to(@featured_article.title,article_path(@featured_article.id),class: "featured-article-title chivo-bold")%></h2>
-    <p><%=@featured_article.text.truncate(100)%></p>
-  </div>
-</article>
-<%end%>
-
-  <%= show_categories(@categories) %>
+<%=show_categories(@categories)%>

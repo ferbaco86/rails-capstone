@@ -90,11 +90,9 @@ module ApplicationHelper
 
   def menu_categories
     categories = Category.categories_priority.take(4)
-    content_tag :div, class: "d-flex j-content-evenly a-items-center f-grow-1" do
+    content_tag :div, class: 'd-flex j-content-evenly a-items-center f-grow-1' do
       categories.collect do |category|
-
-        concat(link_to(category.name , articles_path(category), class: "nav-links cat-navbar chivo-regular"))
-
+        concat(link_to(category.name, articles_path(category), class: 'nav-links cat-navbar chivo-regular'))
       end
     end
   end

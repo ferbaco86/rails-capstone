@@ -3,9 +3,13 @@ class CategoriesController < ApplicationController
     @category = Category.new
   end
 
-  def index
-    @categories = Category.categories_priority.includes(:articles)
+  def home
+    @categories = Category.categories_priority.includes(:articles).first(4)
     @featured_article = Article.featured_article
+  end
+
+  def index
+    @categories = Category.all.includes(:articles)
   end
 
   def create
