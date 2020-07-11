@@ -9,9 +9,13 @@
       <div class="article-author d-flex a-items-center j-content-between ">
         <div>
           <strong>By <%= @article.author.name%></strong>
-          <%=link_to(content_tag(:i, nil, class: "far fa-thumbs-up"), article_votes_path(article_id: @article.id), 
-              class: "article-vote",
-              method: :post) if signed_in?%>
+          <%if signed_in?%>
+            <%=link_to(content_tag(:i, nil, class: "far fa-thumbs-up"), article_votes_path(article_id: @article.id), 
+                class: "article-vote",
+                method: :post) if signed_in?%>
+          <%else%>
+              <%= content_tag(:i, nil, class: "far fa-thumbs-up")%>
+          <%end%>
           <strong><%= @article.votes_count%></strong>
         </div>
         <div>

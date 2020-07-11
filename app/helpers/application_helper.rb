@@ -23,6 +23,8 @@ module ApplicationHelper
       vote_icon = content_tag(:i, nil, class: 'far fa-thumbs-up')
       art_vote = link_to(vote_icon, article_votes_path(article_id: article.id),
                          class: 'article-vote', method: :post)
+    else
+      art_vote = content_tag(:i, nil, class: 'far fa-thumbs-up')
     end
     art_vote
   end
