@@ -18,11 +18,11 @@
 * If a user wants to see the articles of his creation, he can go to his user page by clicking his name on the nav bar.   
 
 ## Screenshots
-![image_2](https://user-images.githubusercontent.com/52765379/87200050-c191e300-c2c9-11ea-8922-291eff308399.png)
+![image_2](https://user-images.githubusercontent.com/52765379/87219770-339b1400-c32c-11ea-9910-35299cabf84d.png)
 
-![image_3](https://user-images.githubusercontent.com/52765379/87200053-c3f43d00-c2c9-11ea-8456-25eea067ac4e.png)
+![image_3](https://user-images.githubusercontent.com/52765379/87219771-35fd6e00-c32c-11ea-8a95-1849a67a798f.png)
 
-![image_4](https://user-images.githubusercontent.com/52765379/87200057-c5be0080-c2c9-11ea-8ca1-99d4a3abfcd4.png)
+![image_4](https://user-images.githubusercontent.com/52765379/87219774-385fc800-c32c-11ea-84b6-6d6867c230d7.png)
 
 ## Built With
 
