@@ -87,4 +87,15 @@ module ApplicationHelper
   def show_picture(article)
     rails_blob_url(article.picture) if article.picture.attached?
   end
+
+  def menu_categories
+    categories = Category.categories_priority.take(4)
+    content_tag :div, class: "d-flex j-content-evenly a-items-center f-grow-1" do
+      categories.collect do |category|
+
+        concat(link_to(category.name , articles_path(category), class: "nav-links cat-navbar chivo-regular"))
+
+      end
+    end
+  end
 end

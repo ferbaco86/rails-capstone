@@ -163,6 +163,10 @@ select {
   justify-content: flex-end;
 }
 
+.f-grow-1 {
+  flex-grow: 1;
+}
+
 .m-lr-20 {
   margin: 0 20px;
 }
@@ -185,13 +189,21 @@ nav {
 }
 
 .nav-home {
-  flex-grow: 6;
+  flex-grow: 1;
   align-self: center;
 }
 
 .nav-links {
   text-decoration: none;
   color: var(--nav-links-color);
+}
+
+.nav-right {
+  width: min-content;
+}
+
+.cat-navbar {
+  color: var(--highlight-color);
 }
 
 main {

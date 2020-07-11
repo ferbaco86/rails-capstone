@@ -17,7 +17,8 @@
         <div class = 'nav-home'>
           <%=link_to(image_tag("den.png", size: "125x40", alt: "icon"), root_path, class: "nav-links")%>
         </div>
-        <div class="d-flex j-content-around a-items-center nav-right">
+          <%= menu_categories %>
+        <div class="d-flex j-content-evenly a-items-center nav-right">
           <% if signed_in? %>
               <h3 id="user-name"><%= link_to("#{session[:name]}", user_path(session[:user_id]),class: "nav-links") %></h3>
               <%=link_to("WRITE AN ARTICLE", new_article_path, class: "nav-links")%>
