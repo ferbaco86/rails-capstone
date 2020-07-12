@@ -16,7 +16,9 @@
       <div class='nav-container lato-font d-flex j-content-between m-lr-20'>
         <div class = 'nav-home d-flex j-content-between a-items-center'>
           <%=link_to(image_tag("den.png", size: "125x40", alt: "icon"), root_path, class: "nav-links")%>
+          <%=link_to("Add category", new_category_path, class: "nav-links")%>
           <%=link_to("All categories",categories_path, class: "nav-links")%>
+          
         </div>
           <%= menu_categories %>
         <div class="d-flex j-content-evenly a-items-center nav-right">

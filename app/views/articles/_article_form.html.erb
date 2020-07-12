@@ -9,7 +9,6 @@
   <%= form.file_field :picture %>
    <div class = "cat-select-container">
       <%= form.label "Category " %>
-      <%=link_to(content_tag(:i, nil ,class: "fas fa-plus-circle"), new_category_path, class: "add-cat-btn")%>
     </div>
     <% if @article.categories.empty? %>
         <%= collection_select(:category, :id, @categories, :id, :name, { selected: @categories.first.id } ) unless @categories.blank? %>
