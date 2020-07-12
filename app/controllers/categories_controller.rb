@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   def new
-    redirect_to root_path, notice: "You have to be logged to create category" unless session[:user_id] != nil
+    redirect_to root_path, notice: 'You have to be logged to create category' if session[:user_id].nil?
     @category = Category.new
   end
 
