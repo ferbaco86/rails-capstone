@@ -1,15 +1,5 @@
 <%=form_with(model: @category, local: true) do |form|%>
-  <% if @category.errors.any? %>
-    <div id="error_explanation" class= "d-flex a-items-center">
-      <h2><%= pluralize(@category.errors.count, "error") %> not allowed this category from being created</h2>
-
-      <ul>
-        <% @category.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%=show_errors(@category)%>
   <%= form.label :name, "Category name: "%>
   <%= form.text_field :name, placeholder: "category name here..."%>
   <%= form.label :priority, "Give it a Priority: "%>

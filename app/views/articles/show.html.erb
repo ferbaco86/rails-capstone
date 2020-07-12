@@ -9,18 +9,11 @@
       <div class="article-author d-flex a-items-center j-content-between ">
         <div>
           <strong>By <%= @article.author.name%></strong>
-          <%if signed_in?%>
-            <%=link_to(content_tag(:i, nil, class: "far fa-thumbs-up"), article_votes_path(article_id: @article.id), 
-                class: "article-vote",
-                method: :post) if signed_in?%>
-          <%else%>
-              <%= content_tag(:i, nil, class: "far fa-thumbs-up")%>
-          <%end%>
+            <%=show_vote(@article)%>
           <strong><%= @article.votes_count%></strong>
         </div>
         <div>
-          <%=link_to(content_tag(:i, nil, class: "far fa-edit"), edit_article_path(@article.id), 
-          class: "article-vote") if @article.author.id == session[:user_id]%>
+          <%=show_edit_icon%>
         </div>
             
       </div>

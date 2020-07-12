@@ -21,18 +21,7 @@
           
         </div>
           <%= menu_categories %>
-        <div class="d-flex j-content-evenly a-items-center nav-right">
-          <% if signed_in? %>
-              <h3 id="user-name"><%= link_to("#{session[:name]}", user_path(session[:user_id]),class: "nav-links") %></h3>
-              <%=link_to("WRITE AN ARTICLE", new_article_path, class: "nav-links")%>
-              <%=link_to("LOG OUT", sessions_destroy_path, class: "nav-links")%>
-        </div>
-          <%else%>
-        <div class="d-flex a-items-center j-content-end nav-right">
-              <%=link_to("LOG IN | ", sessions_log_in_path, class: "nav-links") %>
-              <%=link_to(" REGISTER", new_user_path, class: "nav-links") %>
-        </div>
-          <%end%>
+        <%=logged_menu%>
       </div>
     </nav>
         <% flash.each do |type, msg| %>

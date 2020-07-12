@@ -29,63 +29,6 @@ module ApplicationHelper
     art_vote
   end
 
-  def show_articles(articles)
-    content_tag :div, class: 'articles-container' do
-      count = 0
-      articles.collect do |article|
-        votes_number = content_tag(:span, article.votes_count)
-        art_vote = show_vote(article)
-        author_name = content_tag(:strong, "by #{article.author.name}", class: 'article-author')
-        article_author = content_tag(:div, author_name + art_vote + votes_number)
-        article_title = content_tag(:div,
-                                    link_to(content_tag(:h3, article.title),
-                                            article_path(article),
-                                            class: 'article-title chivo-regular'), class: 'd-flex a-items-center')
-        article_text = content_tag(:p, article.text.truncate_words(20), class: 'article-summary')
-        bg_style = "background: no-repeat center/cover url('#{if article.picture.attached?
-                                                                rails_blob_url(article.picture)
-                                                              end}');"
-        article_picture = content_tag(:div, nil, style: bg_style, class: 'article-image')
-        article_category = content_tag(:h3, article.categories.take.name, class: 'articles-cat-title')
-        article_info = content_tag(:div,
-                                   article_category + article_title + article_author + article_text,
-                                   class: 'article-preview')
-
-        if ((count / 2) % 2).zero?
-          concat(content_tag(:article,
-                             article_picture + article_info, class: 'd-flex'))
-        else
-          concat(content_tag(:article,
-                             article_picture + article_info, class: 'd-flex row-reverse'))
-        end
-        count += 1
-      end
-    end
-  end
-
-  def show_categories(categories)
-    content_tag :div, class: 'categories-container' do
-      article_title = content_tag(:h3, "There's no categories yet") if categories.nil?
-      categories.collect do |category|
-        if !category.articles.take.nil?
-          article_title = content_tag(:h3, category.latest_articles.first.title)
-          latest_picture = category.latest_articles.first.picture
-          art_picture = "background: no-repeat center/cover url('#{if category.latest_articles.take.picture.attached?
-                                                                     rails_blob_url(latest_picture)
-                                                                   end}');"
-        else
-          article_title = content_tag(:h3, 'No articles for this category, GG')
-          art_picture = 'background: #4e443e'
-        end
-        category_name = link_to(content_tag(:h3, category.name), articles_path(category), class: 'cat-link')
-
-        concat(content_tag(:article,
-                           (category_name + article_title),
-                           style: art_picture, class: 'cat-article chivo-bold d-flex flex-column j-content-between'))
-      end
-    end
-  end
-
   def show_picture(article)
     rails_blob_url(article.picture) if article.picture.attached?
   end
@@ -99,16 +42,54 @@ module ApplicationHelper
     end
   end
 
-  def check_categories(form, article, categories)
-     if article.categories.empty?
-       concat(collection_select(:category, :id, categories, :id, :name, { selected: categories.first.id } )  )
-     else 
-      concat(collection_select(:category, :id, categories, :id, :name, { selected: article.categories.first.id } ))
-     end 
-   if @categories.blank?
-      content_tag(:h3 ,"Please add category",class: "alert-cat")
+  def check_categories(form, article, categories, submit_text)
+    if article.categories.empty?
+      concat(collection_select(:category, :id, categories, :id, :name, { selected: categories.first.id }))
     else
-    form.submit "Create Article"
+      concat(collection_select(:category, :id, categories, :id, :name, { selected: article.categories.first.id }))
+    end
+    if @categories.blank?
+      content_tag(:h3, 'Please add category', class: 'alert-cat')
+    else
+      form.submit submit_text
+    end
+  end
+
+  def show_edit_icon
+    return unless @article.author.id == session[:user_id]
+
+    link_to(content_tag(:i, nil, class: 'far fa-edit'), edit_article_path(@article.id),
+            class: 'article-vote')
+  end
+
+  def show_errors(model)
+    return unless model.errors.any?
+
+    concat content_tag(:div,
+                       content_tag(:h2,
+                                   pluralize(model.errors.count, 'error') + ' not allowed to complete the operation'),
+                       id: 'error_explanation', class: 'd-flex a-items-center')
+
+    content_tag :ul, class: 'article-vote' do
+      model.errors.full_messages.each do |message|
+        concat(content_tag(:li, message))
+      end
+    end
+  end
+
+  def logged_menu
+    if signed_in?
+      content_tag :div, class: 'd-flex j-content-evenly a-items-center nav-right' do
+        concat content_tag(:h3, link_to(session[:name].to_s, user_path(session[:user_id]), class: 'nav-links'),
+                           id: 'user-name')
+        concat link_to('WRITE AN ARTICLE', new_article_path, class: 'nav-links')
+        concat link_to('LOG OUT', sessions_destroy_path, class: 'nav-links')
+      end
+    else
+      content_tag :div, class: 'd-flex a-items-center j-content-end nav-right' do
+        concat link_to('LOG IN | ', sessions_log_in_path, class: 'nav-links')
+        concat link_to(' REGISTER', new_user_path, class: 'nav-links')
+      end
     end
   end
 end

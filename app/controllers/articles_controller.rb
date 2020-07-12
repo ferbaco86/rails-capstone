@@ -28,19 +28,15 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    if restrict_article_access 
-      @article = obtain_article
-      redirect_to @article, notice: "You can't edit this"
-      
-      @categories = Category.all
-    end
-    
-
+    @article = obtain_article
+    redirect_to @article, notice: "You can't edit this" if restrict_article_access
+    @categories = Category.all
   end
 
   def update
     @article = obtain_article
     @article.update(article_params)
+    @article.article_categories.update(category_id: category_params[:id])
 
     redirect_to @article, notice: 'Article Updated!'
   end
@@ -67,9 +63,7 @@ class ArticlesController < ApplicationController
   end
 
   def restrict_article_access
-    user_id = obtain_article.author_id 
-    if session[:user_id] != user_id
-      true
-    end
+    user_id = obtain_article.author_id
+    true if session[:user_id] != user_id
   end
 end
