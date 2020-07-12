@@ -10,14 +10,5 @@
    <div class = "cat-select-container">
       <%= form.label "Category " %>
     </div>
-    <% if @article.categories.empty? %>
-        <%= collection_select(:category, :id, @categories, :id, :name, { selected: @categories.first.id } ) unless @categories.blank? %>
-     <% else %>
-        <%= collection_select(:category, :id, @categories, :id, :name, { selected: @article.categories.first.id } ) %>
-     <% end %>
-     <%if @categories.blank?%>
-      <h3 class= "alert-cat">Please add category</h3>
-    <%else%>
-      <%= form.submit "Create Article"%>
-    <%end%>
+    <%= check_categories(form, @article, @categories)%>
 <%end%>

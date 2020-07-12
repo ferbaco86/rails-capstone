@@ -98,4 +98,17 @@ module ApplicationHelper
       end
     end
   end
+
+  def check_categories(form, article, categories)
+     if article.categories.empty?
+       concat(collection_select(:category, :id, categories, :id, :name, { selected: categories.first.id } )  )
+     else 
+      concat(collection_select(:category, :id, categories, :id, :name, { selected: article.categories.first.id } ))
+     end 
+   if @categories.blank?
+      content_tag(:h3 ,"Please add category",class: "alert-cat")
+    else
+    form.submit "Create Article"
+    end
+  end
 end
