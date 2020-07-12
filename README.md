@@ -36,7 +36,7 @@
 
 ## Live Demo
 
-[Geek's Den: Live version](https://geeksden.herokuapp.com/)
+[Geek's Den: Live version](https://geek-den.herokuapp.com/)
 Hosted on a Heroku free account, it may take a while to load. 
 
 ## Getting Started
