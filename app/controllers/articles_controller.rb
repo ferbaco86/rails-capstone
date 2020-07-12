@@ -28,8 +28,14 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article = obtain_article
-    @categories = Category.all
+    if restrict_article_access 
+      @article = obtain_article
+      redirect_to @article, notice: "You can't edit this"
+      
+      @categories = Category.all
+    end
+    
+
   end
 
   def update
@@ -58,5 +64,12 @@ class ArticlesController < ApplicationController
 
   def obtain_article
     Article.find(params[:id])
+  end
+
+  def restrict_article_access
+    user_id = obtain_article.author_id 
+    if session[:user_id] != user_id
+      true
+    end
   end
 end

@@ -23,6 +23,9 @@ class UsersController < ApplicationController
 
   def edit
     @user = obtain_user
+    if restrict_user_access
+      redirect_to @user, notice: "Permission denied"
+    end
   end
 
   def update
@@ -36,11 +39,15 @@ class UsersController < ApplicationController
 
   def destroy
     @user = obtain_user
-    @user.destroy
-    session.delete(:user_id)
-    session.delete(:username)
-
-    redirect_to root_path, alert: 'User eliminated!'
+    if restrict_user_access
+      redirect_to @user, notice: "Permission denied"
+    else
+      @user.destroy
+      session.delete(:user_id)
+      session.delete(:username)
+      redirect_to root_path, alert: 'User eliminated!'
+    end
+    
   end
 
   private
@@ -51,5 +58,12 @@ class UsersController < ApplicationController
 
   def obtain_user
     User.find(params[:id])
+  end
+
+  def restrict_user_access
+    user_id = obtain_user.id
+    if session[:user_id] != user_id
+      true
+    end
   end
 end
