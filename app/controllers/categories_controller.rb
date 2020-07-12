@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
 
   def home
     @categories = Category.categories_priority.includes(:articles).first(4)
-    @featured_article = Article.all.featured_article
+    @featured_article = Article.featured_article
   end
 
   def index
