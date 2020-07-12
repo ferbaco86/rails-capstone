@@ -8,9 +8,9 @@ class Article < ApplicationRecord
   validates :title, presence: true, length: { in: 3..200 }
   validates :text, presence: true
 
-  #scope :featured_article, -> { order('votes_count DESC').first }
+  scope :select_featured_article, -> { order('votes_count DESC NULLS LAST').first }
 
-  def self.featured_article 
-      select("articles.*, articles.votes_count AS votes").order("votes DESC").first
-   end
+  # def self.featured_article
+  #     select("articles.*, articles.votes_count AS votes").order("votes DESC").first
+  #  end
 end

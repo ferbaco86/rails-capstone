@@ -39,7 +39,7 @@ RSpec.describe Article, type: :model do
     it 'returns the article with most votes' do
       article_1
       article_2
-      expect(Article.featured_article).to eq(article_1)
+      expect(Article.select_featured_article).to eq(article_1)
     end
   end
 end
