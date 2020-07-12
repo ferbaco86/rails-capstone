@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Geek's Den</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/17f821a36f.js" crossorigin="anonymous"></script>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag asset_path('favicon.png') %>
+  </head>
+
+  <body class= "d-flex flex-column">
+    <nav>
+      <div class='nav-container lato-font d-flex j-content-between m-lr-20'>
+        <div class = 'nav-home d-flex j-content-between a-items-center'>
+          <%=link_to(image_tag("den.png", size: "125x40", alt: "icon"), root_path, class: "nav-links")%>
+          <%=link_to("Add category", new_category_path, class: "nav-links")%>
+          <%=link_to("All categories",categories_path, class: "nav-links")%>
+          
+        </div>
+          <%= menu_categories %>
+        <%=logged_menu%>
+      </div>
+    </nav>
+        <% flash.each do |type, msg| %>
+          <div class= "notice-messages">
+            <%= msg %>
+        </div>
+    <% end %>
+    <main class= "d-flex flex-column">
+      <%= yield %>
+    </main>
+    <footer class='lato-font d-flex j-content-between'>
+      <div>
+          <%=link_to(image_tag("den.png", size: "125x40", alt: "icon"), root_path, class: "nav-links")%>
+      </div>
+      <div>
+        <p>Copyright 2020. All rights reserved</p>
+      </div>
+      <div class="d-flex a-items-center j-content-evenly">
+        <p>Find me in</p> 
+        <%=link_to(content_tag(:i,nil,class: "fab fa-twitter-square social-icon"), "http://twitter.com/ferbac0", target: "_blank")%>
+        <%=link_to(content_tag(:i,nil,class: "fab fa-github-square social-icon"), "https://github.com/ferbaco86", target: "_blank")%>
+        <%=link_to(content_tag(:i,nil,class: "fab fa-linkedin social-icon"), "https://www.linkedin.com/in/fernando-bahamondes-correa/", target: "_blank")%>   
+      </div>
+    </footer>
+
+  </body>
+</html>

@@ -1,0 +1,10 @@
+
+<%=form_with(model: @user, local: true) do |form|%>
+<%=show_errors(@user)%>
+  <%= form.label :name, "Enter your username"%>
+  <%= form.text_field :name, placeholder: "Enter your name here..."%>
+  <%= form.submit "Register"%>
+<%end%>
+
+
+   

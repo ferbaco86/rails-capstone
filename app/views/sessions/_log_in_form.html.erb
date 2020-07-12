@@ -1,0 +1,9 @@
+<%= form_with(url: sessions_path, local: true) do |form| %>
+
+<div>
+    <%= form.label(:name_login, "Enter your name: ", class: "label" ) %>
+    <%= form.text_field(:name_login, placeholder: "Your username here...") %>
+    <%= form.submit('Login', class: "button is-primary") %>
+</div>
+  
+<% end %>

@@ -1,0 +1,266 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;700&family=Source+Sans+Pro:wght@400;600&display=swap');
+
+/* CSS RESET */
+
+/* Box sizing rules */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0;
+  list-style: none;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set core body defaults */
+body {
+  height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: #4e443e;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* colors */
+
+:root {
+  --nav-bg-color: #fff;
+  --nav-links-color: #b8b6b2;
+  --highlight-color: #fa6000;
+  --text-color: #f0ebeb;
+  --text-color-dark: #4d443e;
+}
+
+/* fonts */
+
+.lato-font {
+  font-family: 'Lato', sans-serif;
+}
+
+.chivo-regular {
+  font-family: 'Chivo', sans-serif;
+  font-weight: 400;
+}
+
+.chivo-bold {
+  font-family: 'Chivo', sans-serif;
+  font-weight: 700;
+}
+
+.source-sans-pro {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.font-s-2 {
+  font-size: 2em !important;
+}
+
+.font-s-1-2 {
+  font-size: 1.2em !important;
+}
+
+/* display */
+
+.d-flex {
+  display: flex !important;
+}
+
+.row-reverse {
+  flex-direction: row-reverse;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.j-content-center {
+  justify-content: center;
+}
+
+.a-items-center {
+  align-items: center;
+}
+
+.j-content-between {
+  justify-content: space-between;
+}
+
+.j-content-evenly {
+  justify-content: space-evenly;
+}
+
+.j-content-around {
+  justify-content: space-around;
+}
+
+.j-content-end {
+  justify-content: flex-end;
+}
+
+.f-grow-1 {
+  flex-grow: 1;
+}
+
+.m-lr-20 {
+  margin: 0 20px;
+}
+
+.mb-20 {
+  margin-bottom: 20px !important;
+}
+
+nav {
+  background-color: var(--nav-bg-color);
+  font-size: 0.9em;
+  text-transform: uppercase;
+  -webkit-box-shadow: inset 0 -14px 16px -20px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: inset 0 -14px 16px -20px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 -14px 16px -20px rgba(0, 0, 0, 0.5);
+}
+
+.nav-container {
+  padding: 20px 0;
+}
+
+.nav-home {
+  flex-grow: 1;
+  align-self: center;
+  font-weight: 700;
+}
+
+.nav-links {
+  text-decoration: none;
+  color: var(--nav-links-color);
+}
+
+.nav-right {
+  width: min-content;
+  font-weight: 700;
+}
+
+.cat-navbar {
+  color: var(--highlight-color);
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+main,
+.nav-right,
+.categories-container,
+.articles-container,
+.instructions-write,
+.create-art-container,
+.instructions-register,
+.instructions-login,
+.full-article-image {
+  flex-grow: 1;
+}
+
+footer p {
+  color: var(--text-color);
+}
+
+.notice-messages {
+  text-align: center;
+  color: var(--highlight-color);
+  font-size: 1.3em;
+}
+
+#error_explanation {
+  display: flex;
+  width: 100%;
+  color: var(--text-color);
+}
+
+.centered-container {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.field_with_errors {
+  display: inline;
+}
+
+.social-icon {
+  color: var(--highlight-color);
+  font-size: 1.6em;
+  margin-left: 10px;
+}
+
+footer {
+  flex-shrink: 0;
+  -webkit-box-shadow: inset 0 4px 5px -4px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: inset 0 4px 5px -4px rgba(0, 0, 0, 0.75);
+  box-shadow: inset 0 4px 5px -4px rgba(0, 0, 0, 0.75);
+  padding: 20px 20px;
+}

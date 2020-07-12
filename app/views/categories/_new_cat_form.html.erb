@@ -1,0 +1,9 @@
+<%=form_with(model: @category, local: true) do |form|%>
+  <%=show_errors(@category)%>
+  <%= form.label :name, "Category name: "%>
+  <%= form.text_field :name, placeholder: "category name here..."%>
+  <%= form.label :priority, "Give it a Priority: "%>
+  <%= form.number_field :priority, placeholder: "Enter a number..."%>
+
+  <%= form.submit "Create Category"%>
+<%end%>
