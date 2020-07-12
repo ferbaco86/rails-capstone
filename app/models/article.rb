@@ -11,6 +11,6 @@ class Article < ApplicationRecord
   #scope :featured_article, -> { order('votes_count DESC').first }
 
   def self.featured_article 
-      order('votes_count DESC').first
-  end
+      select("articles.*, articles.votes_count AS votes").order("votes DESC").first
+   end
 end

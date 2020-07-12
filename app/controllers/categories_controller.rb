@@ -19,6 +19,7 @@ class CategoriesController < ApplicationController
       redirect_to(new_article_path)
     else
       render :new
+
     end
   end
 
