@@ -2,7 +2,10 @@
   <%= form.label :title, "Title " %>
   <%= form.text_field :title, placeholder: "Add your Title here..."%>
   <%=form.label :text, "Content " %>
-  <%= form.text_area :text, placeholder: "Write your heart out here...",size: "1x10"  %>
+  <div class= "d-flex flex-column">
+    <%= form.hidden_field :text, id: :text_content ,placeholder: "Write your heart out here...",size: "1x10"  %>
+    <trix-editor input="text_content" class="trix-content" placeholder= "Write your heart out here..."></trix-editor>
+  </div>
   <%= form.label :picture %>
   <%= form.file_field :picture %>
    <div class = "cat-select-container">

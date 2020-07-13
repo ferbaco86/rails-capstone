@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require trix
  *= require_tree .
  *= require_self
  */
@@ -106,6 +107,25 @@ select {
 .chivo-regular {
   font-family: 'Chivo', sans-serif;
   font-weight: 400;
+}
+
+.trix-content {
+  margin: 10px 10px 0 10px;
+}
+
+trix-editor {
+  height: 500px !important;
+  min-width: 760px;
+  max-width: 1000px !important;
+  max-height: 500px !important;
+  overflow-y: auto !important;
+  overflow-x: auto !important;
+  background-color: #fff;
+  align-self: center;
+}
+
+.button_group {
+  background-color: #fff;
 }
 
 .chivo-bold {

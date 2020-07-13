@@ -4,7 +4,7 @@ module ArticlesHelper
       content_tag(:h3, "There's no featured article yet", class: 'articles-cat-title')
     else
       bg_img = "background: no-repeat top center/cover url( #{show_picture(@featured_article)});"
-      p_text = content_tag(:p, @featured_article.text.truncate(100))
+      p_text = content_tag(:p, sanitize(@featured_article.text.truncate(100)))
       content_tag :article, class: 'featured-article d-flex flex-column j-content-end', style: bg_img do
         concat content_tag(:div, content_tag(:h2,
                                              link_to(@featured_article.title,
@@ -27,7 +27,7 @@ module ArticlesHelper
                                     link_to(content_tag(:h3, article.title),
                                             article_path(article),
                                             class: 'article-title chivo-regular'), class: 'd-flex a-items-center')
-        article_text = content_tag(:p, article.text.truncate_words(20), class: 'article-summary')
+        article_text = content_tag(:div, sanitize(article.text.truncate_words(20)), class: 'trix-content')
         bg_style = "background: no-repeat center/cover url('#{if article.picture.attached?
                                                                 rails_blob_url(article.picture)
                                                               end}');"
