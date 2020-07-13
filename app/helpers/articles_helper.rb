@@ -4,7 +4,7 @@ module ArticlesHelper
       content_tag(:h3, "There's no featured article yet", class: 'articles-cat-title')
     else
       bg_img = "background: no-repeat top center/cover url( #{show_picture(@featured_article)});"
-      p_text = content_tag(:p, sanitize(@featured_article.text.truncate(100)))
+      p_text = content_tag(:div, sanitize(@featured_article.text.truncate(100)), class: "trix-content featured-art-text")
       content_tag :article, class: 'featured-article d-flex flex-column j-content-end', style: bg_img do
         concat content_tag(:div, content_tag(:h2,
                                              link_to(@featured_article.title,
