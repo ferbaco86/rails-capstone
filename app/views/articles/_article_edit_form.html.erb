@@ -4,7 +4,7 @@
   <%=form.label :text, "Content " %>
   <div class= "d-flex flex-column">
     <%= form.hidden_field :text, id: :text_content ,placeholder: "Write your heart out here...",size: "1x10"  %>
-    <trix-editor input="text_content" class="trix-content" placeholder= "Write your heart out here..."></trix-editor>
+    <trix-editor input="text_content" class="trix-content trix-editor" placeholder= "Write your heart out here..."></trix-editor>
   </div>
   <%= form.label :picture %>
   <%= form.file_field :picture %>
