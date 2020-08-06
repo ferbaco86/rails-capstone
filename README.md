@@ -105,8 +105,6 @@ And controller tests:
 
 * The user login can be expanded with e-mail and password
 
-* The text area can be updated to act as a text editor to allow markdown
-
 * The website can be made mobile-friendly
 
 
